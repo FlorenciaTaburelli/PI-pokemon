@@ -17,7 +17,7 @@ function SearchPokemon() {
 
   function handleClick(e){
     e.preventDefault()
-    dispatch(getPokemonByName(name))
+    dispatch(getPokemonByName(name.toLowerCase()))
     setName('')
   }
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 function PokemonCard(props) {
+  
     return (
       <Link to={`/pokemons/${props.id}`}>
         <div className="pokemonCard">

@@ -5,7 +5,8 @@ const initialState = {
     pokemons:[],
     pokemonByName: {},
     pokemonById: {},
-    types: []
+    types: [],
+    newPokemon: {}
   }
  
   export default function reducer(state= initialState, action){
@@ -17,6 +18,20 @@ const initialState = {
           pokemons: action.payload
         };
       case 'GET_POKEMON_BY_NAME':
+        // const pokeFound =  state.pokemons.filter(p => p.name === action.payload)
+        // if(pokeFound.length > 0) {
+        //   console.log(pokeFound)
+        //   return {
+        //     ...state,
+        //     pokemons: pokeFound
+        //   }
+        // }else{
+        //   return{
+        //     ...state
+        //   }
+        // }
+        // return {
+        //   ...state,
         return {
           ...state,
           pokemonByName: action.payload
@@ -27,7 +42,6 @@ const initialState = {
           pokemonByName: {}
         };
       case 'GET_POKEMON_DETAIL':
-        console.log(action.payload.types)
         return {
           ...state,
           pokemonById: action.payload
@@ -42,7 +56,11 @@ const initialState = {
           ...state,
           types: action.payload
         }
-  
+      case 'POKEMON_POST':
+        return {
+          ...state,
+          newPokemon: action.payload
+        }
         default:
           return state;
     }

@@ -14,8 +14,12 @@ function Cards() {
     dispatch(getAllPokemons())
   }, []);
 
-  //console.log(allPokemons.map(poke => poke.name))
-
+if (allPokemons.length === 0) {
+    return (
+      <div >
+       Loading ...
+      </div>
+)}else{
   return (
     <div className="Cards">
        allPokemons
@@ -32,7 +36,7 @@ function Cards() {
                     )} 
         </div>
     </div>
-  )
+  )}
    
 }  
 

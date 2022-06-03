@@ -1,9 +1,8 @@
 
 import Cards from './Cards'
 import { useSelector, useDispatch } from "react-redux";
-import PokeCard from "./PokeCard";
 import React, { useEffect } from "react";
-import { resetPokemonByName, getTypes, getAllPokemons } from '../redux/actions'
+import { getTypes, getAllPokemons } from '../redux/actions'
 import PokemonFound from './PokemonFound';
 
 function Home() {
@@ -13,20 +12,15 @@ function Home() {
 
   useEffect(() => {
     dispatch(getAllPokemons())
-    getTypes()
+    dispatch(getTypes())
   }, []);
 
  
 
   return (
     <div className="Home">
-        {pokemonByName.name ? 
-          // <div>
-          //   <PokeCard name={pokemonByName.name} img={pokemonByName.img} key={pokemonByName.id}/>
-            
-          // </div>
-          <PokemonFound name={pokemonByName.name} img={pokemonByName.img}/>
-        :  <Cards />
+        {pokemonByName.name ? <PokemonFound name={pokemonByName.name} img={pokemonByName.img} id={pokemonByName.id}/> 
+        : <Cards />
         }
     </div>
   );

@@ -134,7 +134,7 @@ const createPokemon = async (name, hp, attack , defense, speed, height, weight, 
             const [newPokemon, created] = await Pokemon.findOrCreate({
                 where: {name},
                 defaults: {
-                name, 
+                name: name.toLowerCase(), 
                 hp, 
                 attack , 
                 defense, 
@@ -148,9 +148,9 @@ const createPokemon = async (name, hp, attack , defense, speed, height, weight, 
            if(created){   // si lo creo le agrego los types
               //---- Busco en el model Type los types pasados por parametro
             let arrayProm = await Promise.all(types.map(el => Type.findOne({where: {name: el}})))
-            console.log(arrayProm)
+          
             let typesEncontrados = arrayProm.map(el => el.toJSON().id)
-            console.log(typesEncontrados)
+           
             await newPokemon.addType(typesEncontrados)
             ///                         15, 2
             return ('el pokemon fue creado con exito')

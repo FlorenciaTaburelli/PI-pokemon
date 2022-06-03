@@ -6,18 +6,22 @@ import Home from './components/Home'
 import PokemonDetail from './components/PokemonDetail'
 import CreatePokemon from './components/CreatePokemon'
 import LandingPage from './components/LandingPage'
-
+import PokemonFound from "./components/PokemonFound";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route exact path="/" element={<LandingPage/>} />
-        <Route path="/" element={<Nav/>}>
+         <Route path="/" element={<Nav/>}>  {/*  //  PARA MOSTRAR EL NAV EN VARIAS PAGINAS, ENVUELVE LAS RUTAS DONDE LO QUIERO MOSTAR */}
           <Route exact path="/home" element={<Home/>} />
+          <Route path='/pokemonFound' element={<PokemonFound/>} />
           <Route path="/pokemons/:id" element={<PokemonDetail/>} />
           <Route exact path="/createPokemon" element={<CreatePokemon/>} />
         </Route>
+         {/* <Route exact path="/home" element={<Home/>} />
+        <Route path="/pokemons/:id" element={<PokemonDetail/>} /> */}
+       
       </Routes>
     </div>
   );
