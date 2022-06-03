@@ -2,7 +2,7 @@
 //----------------------------------------------------------------
 import { useDispatch } from "react-redux";
 import { resetPokemonByName } from '../redux/actions'
-import PokeCard from "./PokeCard";
+import PokeCard from "./PokeCard/PokeCard";
 
 
 function PokemonFound(props) {

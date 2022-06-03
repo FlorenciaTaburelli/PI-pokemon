@@ -4,10 +4,11 @@ import { Route, Routes } from 'react-router-dom'
 import Nav from './components/Nav'
 import Home from './components/Home'
 import PokemonDetail from './components/PokemonDetail'
-import CreatePokemon from './components/CreatePokemon'
+
 import LandingPage from './components/LandingPage'
 import PokemonFound from "./components/PokemonFound";
-import NewPokemon from "./components/NewPokemon";
+import CreatePokemon from "./components/PokemonCreate/CreatePokemon";
+//import NewPokemon from "./components/PokemonCreate";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route exact path="/home" element={<Home/>} />
           <Route path='/pokemonFound' element={<PokemonFound/>} />
           <Route path="/pokemons/:id" element={<PokemonDetail/>} />
-          <Route exact path="/createPokemon" element={<CreatePokemon/>} />
+          <Route exact path="/createPokemon" element={<CreatePokemon />} />
         </Route>
          {/* <Route exact path="/home" element={<Home/>} />
         <Route path="/pokemons/:id" element={<PokemonDetail/>} /> */}

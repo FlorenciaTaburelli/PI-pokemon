@@ -2,7 +2,7 @@ import React, { useEffect  } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getAllPokemons  } from '../redux/actions'
-import PokeCard from "./PokeCard";
+import PokeCard from "./PokeCard/PokeCard";
 
 
 function Cards() {
