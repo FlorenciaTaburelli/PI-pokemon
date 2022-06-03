@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
-// Exportamos una funcion que define el modelo
+
+
 
 module.exports = (sequelize) => {
   sequelize.define('pokemon', {
@@ -17,7 +18,6 @@ module.exports = (sequelize) => {
     },
     img: {
       type: DataTypes.STRING,
-      defaultValue: "https://lorempokemon.fakerapi.it/pokemon"
     },
     hp: {
       type: DataTypes.INTEGER,

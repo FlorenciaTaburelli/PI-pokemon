@@ -1,15 +1,15 @@
 
 import {useEffect, useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createPokemon } from '../redux/actions';
+import NewPokemon from './NewPokemon';
 
-// Fijense en los test que SI O SI tiene que ser un functional component, de otra forma NO VAN A PASAR LOS TEST
-// Deben usar Hooks para que los test pasen.
-// No realicen un destructuring de ellos, sino que utilicenlos de la siguiente forma 'React.useState' y 'React.useEffect' ,
-// Si no lo hacen asi los test no van a correr.
+/// VALIDACIONES , MOSTRAR LOS TIPOS ELEGIDOS Y PODER QUITARLOS
 
 const CreatePokemon = () => {
    const dispatch = useDispatch();
+  const types = useSelector((state) => state.types)
+
    const [newPokemon, setNewPokemon] = useState({
       name: '',
       hp: 0,
@@ -22,6 +22,9 @@ const CreatePokemon = () => {
    })
 
    const [typeSelected, setTypeSelected] = useState([])
+
+   const pokemonCreated = useSelector((state) => state.newPokemon)
+    
 
 useEffect(() => {
 setNewPokemon({
@@ -45,42 +48,32 @@ setNewPokemon({
     setTypeSelected([...typeSelected, e.target.value])
    }
 
+   
   
   return (
       <div>
+         {pokemonCreated.name ? 
+            <NewPokemon />
+         :
          <form onSubmit={handleSubmit}>
-            <label>Name: <input name='name' onChange={handleChange}/></label>
-            <label>HP: <input type='number' name='hp' onChange={handleChange}/></label>
-            <label>attack: <input type='number' name='attack' onChange={handleChange}/></label>
-            <label>Defense: <input type='number' name='defense' onChange={handleChange}/></label>
-            <label>Speed: <input type='number' name='speed' onChange={handleChange}/></label>
-            <label>Height: <input type='number' name='height' onChange={handleChange}/></label>
-            <label>Weight: <input type='number' name='weight' onChange={handleChange}/></label>
-           
-            <select onChange={(e) => handleSelect(e)} id="select-types" multiple="multiple">
-              <option value="normal">Normal</option>
-              <option value="fighting">fighting</option>
-              <option value="flying">flying</option>
-              <option value="poison">poison</option>
-              <option value="ground">ground</option>
-              <option value="rock">rock</option>
-              <option value="bug">bug</option>
-              <option value="ghost">ghost</option>
-              <option value="steel">steel</option>
-              <option value="fire">fire</option>
-              <option value="water">water</option>
-              <option value="grass">grass</option>
-              <option value="electric">electric</option>
-              <option value="psychic">psychic</option>
-              <option value="ice">ice</option>
-              <option value="dragon">dragon</option>
-              <option value="dark">dark</option>
-              <option value="fairy">fairy</option>
-              <option value="unknown">unknown</option>
-              <option value="shadow">shadow</option>
-            </select>
-            <button type='submit'>Create Pokemon</button>
-         </form>
+               <label>Give me a name! <input type='text' name='name' onChange={handleChange} placeholder='Name...'/></label>
+               <label>Stayin’ alive <input type='number'  name='hp' onChange={handleChange} placeholder='HP...'/></label>
+               <label>How strong i'm? <input type='number' name='attack'  onChange={handleChange} placeholder='Attack...'/></label>
+               <label>Can't mess with me <input type='number' name='defense'  onChange={handleChange} placeholder='Defense...'/></label>
+               <label>I'm this fast! <input type='number' name='speed'  onChange={handleChange} placeholder='Speed...'/></label>
+               <label>I'm this tall! <input type='number' name='height'  onChange={handleChange} placeholder='Height...'/></label>
+               <label>I'm this heavy! <input type='number' name='weight'  onChange={handleChange} placeholder='Weight...'/></label>
+               Pick at least one type please!
+               <select onChange={(e) => handleSelect(e)} id="select-types" multiple="multiple">
+               {types.map((e) => (
+                     <option  value={e} key={e}>{e}</option>
+                  ))}
+               </select>
+               <button type='submit'>Create Pokemon</button>
+            </form>
+         
+         }
+         
       </div>
    );
 };

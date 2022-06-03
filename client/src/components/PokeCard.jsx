@@ -1,8 +1,8 @@
-
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 
-function PokemonCard(props) {
+function PokeCard(props) {
   
     return (
       <Link to={`/pokemons/${props.id}`}>
@@ -16,4 +16,4 @@ function PokemonCard(props) {
 
 
 
-export default PokemonCard;
+export default PokeCard;

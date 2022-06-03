@@ -50,7 +50,6 @@ export function getPokemonById(id) {
 
 // ---------------- CREATE POKEMON ----------------
 export function createPokemon(newPokemon) {
-  console.log(newPokemon)
   return async function (dispatch) {
     try {
       let pokemonCreated = await axios({
@@ -58,7 +57,7 @@ export function createPokemon(newPokemon) {
                                       url: 'http://localhost:3001/pokemons',
                                       data: {newPokemon}
                                     });
-                                    console.log(pokemonCreated.data)
+    
       return dispatch({
         type: 'POKEMON_POST',
         payload: pokemonCreated.data,
@@ -96,6 +95,13 @@ export function resetPokemonByName(){
 export function resetPokemonById(){
   return{
     type: 'RESET_POKEMON_DETAIL'
+  }
+}
+
+
+export function resetNewPokemon(){
+  return{
+    type: 'RESET_NEW_POKEMON'
   }
 }
 

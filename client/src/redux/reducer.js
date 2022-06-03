@@ -10,7 +10,7 @@ const initialState = {
   }
  
   export default function reducer(state= initialState, action){
-    
+    //console.log(state.newPokemon)
     switch(action.type){
       case 'GET_POKEMONS':
         return {
@@ -18,20 +18,6 @@ const initialState = {
           pokemons: action.payload
         };
       case 'GET_POKEMON_BY_NAME':
-        // const pokeFound =  state.pokemons.filter(p => p.name === action.payload)
-        // if(pokeFound.length > 0) {
-        //   console.log(pokeFound)
-        //   return {
-        //     ...state,
-        //     pokemons: pokeFound
-        //   }
-        // }else{
-        //   return{
-        //     ...state
-        //   }
-        // }
-        // return {
-        //   ...state,
         return {
           ...state,
           pokemonByName: action.payload
@@ -61,6 +47,12 @@ const initialState = {
           ...state,
           newPokemon: action.payload
         }
+      case 'RESET_NEW_POKEMON':
+        return {
+          ...state,
+          newPokemon: {}
+        }
+      
         default:
           return state;
     }

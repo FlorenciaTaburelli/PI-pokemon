@@ -7,6 +7,7 @@ import PokemonDetail from './components/PokemonDetail'
 import CreatePokemon from './components/CreatePokemon'
 import LandingPage from './components/LandingPage'
 import PokemonFound from "./components/PokemonFound";
+import NewPokemon from "./components/NewPokemon";
 
 function App() {
   return (

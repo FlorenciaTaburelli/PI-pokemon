@@ -2,7 +2,7 @@
 import Cards from './Cards'
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
-import { getTypes, getAllPokemons } from '../redux/actions'
+import { getTypes, getAllPokemons, resetNewPokemon } from '../redux/actions'
 import PokemonFound from './PokemonFound';
 
 function Home() {
@@ -13,6 +13,7 @@ function Home() {
   useEffect(() => {
     dispatch(getAllPokemons())
     dispatch(getTypes())
+    dispatch(resetNewPokemon())
   }, []);
 
  

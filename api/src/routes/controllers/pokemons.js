@@ -3,16 +3,19 @@ const { Pokemon, Type } = require('../../db')
 const axios = require('axios');
 const db = require('../../db');
 
+
+
 // GET  a api externa 
 const getApiPokemons = async () => {
     try {
+        
         // [axios.get('https://pokeapi.co/api/v2/pokemon?limit=40'), axios.get('https://pokeapi.co/api/v2/pokemon?limit=40'), axios.get('https://pokeapi.co/api/v2/pokemon?limit=40')]
         promiseList = []  // arreglo de promesas
         const url = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=40') // primera peticion, obtengo name + url
         url.data.results.forEach(el => { 
            promiseList.push(axios.get(el.url).then(res => res.data)) // pusheo las promesas al arreglo
         })
-      const pokeData = Promise.all(promiseList) // ejecuto todas las promesas al mismo tiempo
+      const pokeData = Promise.all(promiseList) // ejecuto todas las promesas al mismo tiempo c
        .then(res => res.map(poke => {
            const pokemon = {
                id: poke.id,
@@ -129,12 +132,16 @@ const createPokemon = async (name, hp, attack , defense, speed, height, weight, 
     try {
         //- ---- Busco o creo el pokemon
         const typeCount = await Type.count()
+        const gatos = await axios.get('https://aws.random.cat/meow')
         
-        if(typeCount > 0){
+        const finalCat = await gatos.data.file
+        
+       if(typeCount > 0 && finalCat){
             const [newPokemon, created] = await Pokemon.findOrCreate({
                 where: {name},
                 defaults: {
                 name: name.toLowerCase(), 
+                img: finalCat,
                 hp, 
                 attack , 
                 defense, 
@@ -152,8 +159,8 @@ const createPokemon = async (name, hp, attack , defense, speed, height, weight, 
             let typesEncontrados = arrayProm.map(el => el.toJSON().id)
            
             await newPokemon.addType(typesEncontrados)
-            ///                         15, 2
-            return ('el pokemon fue creado con exito')
+            ///      ('el pokemon fue creado con exito')                   15, 2
+            return newPokemon
             } 
             return `el pokemon ${name} ya existe`
         }
