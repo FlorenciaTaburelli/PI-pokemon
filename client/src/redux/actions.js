@@ -55,7 +55,7 @@ export function createPokemon(newPokemon) {
       let pokemonCreated = await axios({
                                       method: 'post',
                                       url: 'http://localhost:3001/pokemons',
-                                      data: {newPokemon}
+                                      data: newPokemon
                                     });
     
       return dispatch({

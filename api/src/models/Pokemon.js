@@ -42,6 +42,10 @@ module.exports = (sequelize) => {
     weight: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    createdPokemon: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     }
   },{
     timestamps: false,

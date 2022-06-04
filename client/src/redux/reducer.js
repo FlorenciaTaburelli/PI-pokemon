@@ -13,6 +13,10 @@ const initialState = {
     //console.log(state.newPokemon)
     switch(action.type){
       case 'GET_POKEMONS':
+        const creados = action.payload.filter(poke => poke.createdPokemon)
+        console.log(creados)
+        const typePoke = creados.map(c => c.types.map(t => t.name))
+        console.log(...typePoke)
         return {
           ...state,
           pokemons: action.payload

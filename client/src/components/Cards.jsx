@@ -30,6 +30,7 @@ if (allPokemons.length === 0) {
                           name={poke.name} 
                           img={poke.img}
                           id= {poke.id}
+                          types={poke.types}
                           key={poke.name}/>
                        ) 
                        }
