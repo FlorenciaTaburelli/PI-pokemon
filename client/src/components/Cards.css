@@ -1,0 +1,14 @@
+.contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-items: center;
+    flex-direction: row;
+}
+
+.allCards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}

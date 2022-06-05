@@ -72,7 +72,8 @@ const getAllPokemons = async(name) => {
             const allPokes = [ ...dbPoke, ...apiPoke]
 
             if(name){
-                const pokemonByName = allPokes.filter(p => p.name === name)
+                const pokemonByName = allPokes.find(p => p.name === name)
+                
                 if(pokemonByName) return pokemonByName
                 return 'El pokemon buscado no existe'
             }else{
@@ -125,19 +126,19 @@ const getAllPokemons = async(name) => {
 
 // ------ GET POKEMON BY ID --------------------------------
 const findPokemonById = async(id) => {
-    
+   
     try {
         const apiPoke = await getApiPokemons()
         const dbPoke = await getDbPokemons()
         const allPokes = [...apiPoke, ...dbPoke]
 
-        if(id){
-            const pokemonByName = allPokes.filter(p => p.id === id)
-            if(pokemonByName) return pokemonByName
-            return 'El pokemon buscado no existe'
-        }else{
-            return allPokes
-        }
+       // console.log(allPokes.find(p => p.id == id))
+
+        const pokemonById = allPokes.find(p => p.id == id)
+
+        if(pokemonById) return pokemonById
+        return 'El pokemon buscado no existe'
+        
 
            
         // if(id.length < 4){  /// porque no hay mas de 1000 pokes en la api
@@ -180,16 +181,16 @@ const createPokemon = async (name, hp, attack , defense, speed, height, weight, 
     try {
         //- ---- Busco o creo el pokemon
         const typeCount = await Type.count()
-        // const gatos = await axios.get('https://aws.random.cat/meow')
-        
-        // const finalCat = await gatos.data.file /// --------------- FOTO RANDOM ERROR
-        // console.log(finalCat)
-        // && finalCat.length > 0 && finalCat
+        //---   IMAGEN RANDOM ---- -
+        const gatos = await axios.get('https://api.thecatapi.com/v1/images/search')
+        const image = gatos.data[0].url
+  
        if(typeCount > 0){
             const [newPokemon, created] = await Pokemon.findOrCreate({
                 where: {name},
                 defaults: {
-                name: name.toLowerCase(), 
+                name: name.toLowerCase(),
+                img: image,
                 hp, 
                 attack , 
                 defense, 

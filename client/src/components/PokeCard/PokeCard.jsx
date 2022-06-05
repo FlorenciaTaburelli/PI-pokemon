@@ -1,30 +1,14 @@
-import axios from 'axios'
+import './PokeCard.css'
 import { Link } from 'react-router-dom'
-
-
 
 function PokeCard(props) {
  
     return (
-      <Link to={`/pokemons/${props.id}`}>
-        <div className="pokemonCard">
-              <h4>{props.name}</h4>
-              <img src={props.img} alt={props.name}/>
-              <div> 
-                {/* {props.types.length > 0 && props.types.forEach(type => <p>{type}</p>)} */}
-                {/* <h4 class="poke-types">
-                  {types.length === 2 ? (
-                    <div>
-                      {typeof types[0] === 'string' ? types[0] : types[0]?.name}-    
-                      {typeof types[1] === 'string' ? types[1] : types[1]?.name}
-                    </div>) 
-                    : (
-                    <div>
-                      {typeof types[0] === 'string' ? types[0] : types[0]?.name}
-                    </div>
-                  )}
-                </h4> */}
-             </div>
+      <Link to={`/pokemons/${props.id}`} className="pokemonCard">
+        <div className="inside">
+              <h4 className="name">{props.name}</h4>
+              <img src={props.img} alt={props.name} className='image'/>
+              {props.types.map((type, i) => <p key={i} className='type' >{type}</p>)}
           </div>
       </Link>
     );

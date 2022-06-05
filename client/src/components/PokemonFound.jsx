@@ -21,8 +21,8 @@ function PokemonFound(props) {
       </div>
   )}else{
       return (
-        <div className="Home">
-            <PokeCard name={props.name} img={props.img} id={props.id}/>
+        <div className="container-found">
+            <PokeCard name={props.name} img={props.img} id={props.id} types={props.types}/>
             <button onClick={(e) => handleClick(e)}>Go back</button>
         </div>
       );

@@ -9,7 +9,7 @@ function PokemonDetail() {
 
  const pokemon = useSelector((state) => state.pokemonById)
  const pokemonByName = useSelector((state) => state.pokemonByName);
-
+console.log(param.id)
 
 useEffect(() => {
   dispatch(resetPokemonById())

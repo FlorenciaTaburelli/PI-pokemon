@@ -1,6 +1,6 @@
 import React, { useEffect  } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import './Cards.css'
 import { getAllPokemons  } from '../redux/actions'
 import PokeCard from "./PokeCard/PokeCard";
 
@@ -21,8 +21,8 @@ if (allPokemons.length === 0) {
       </div>
 )}else{
   return (
-    <div className="Cards">
-       allPokemons
+    <div className="contenedor">
+      
           <div className="allCards">
                     {allPokemons && allPokemons.map(poke => {
                        return(
