@@ -10,3 +10,8 @@ a{
     text-decoration: none;
     margin: 0, 30px, 0, 30px;
 }
+
+.toHome, .toCreate {
+    padding-left: 10px;
+    padding-right: 10px;
+}

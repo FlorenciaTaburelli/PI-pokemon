@@ -1,9 +1,9 @@
 .contenedor{
     display: flex;
     flex-wrap: wrap;
-    
-    justify-items: center;
-    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 20px;
+    flex-direction: column;
 }
 
 .allCards{
@@ -11,4 +11,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+   
+}
+
+.loading{
+    color: #ffffff;
+    font-size: 100px;
 }

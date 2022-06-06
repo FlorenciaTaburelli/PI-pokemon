@@ -1,7 +1,7 @@
 import React from "react"
 import './App.css';
 import { Route, Routes } from 'react-router-dom'
-import Nav from './components/Nav'
+import Nav from './components/Nav/Nav.jsx'
 import Home from './components/Home'
 import PokemonDetail from './components/PokemonDetail'
 

@@ -1,0 +1,25 @@
+.text{
+    color: white;
+    font-size: 18px
+}
+
+.pagination-container{
+    margin-top: 10px;
+    height:30px
+}
+
+.pagination-button{
+    width: 80px;
+    height: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: solid 4px rgb(47 107 180);
+    border-radius: 3px;
+    font-size: 15px;
+    background-color:rgb(254 203 8);
+    color:rgb(47 107 180)
+}
+
+.pagination-button:hover{
+    background-color: rgb(160, 130, 7);
+}

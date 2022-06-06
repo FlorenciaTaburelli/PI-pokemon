@@ -23,6 +23,11 @@ function SearchPokemon() {
 
   function handleChange(e){
     setName(e.target.value)
+    if(e.keyCode === 13){
+        e.preventDefault()
+        dispatch(getPokemonByName(name))
+        setName('')
+    }
   }
 
   

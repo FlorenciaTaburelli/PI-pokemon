@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import SearchPokemon from './SearchPokemon';
+import SearchPokemon from '../SearchPokemon';
 import { Routes, Route } from 'react-router-dom'
-import { resetPokemonByName } from '../redux/actions'
+//import { resetPokemonByName } from '../redux/actions'
 import './Nav.css'
 
 function Nav() {
@@ -11,8 +11,8 @@ function Nav() {
     return (
         <header >
             <nav className="navbar">
-                <Link to="/home/" >Home</Link>
-                <Link to="/createPokemon" >Create Pokemon</Link>
+                <Link to="/home/" className='toHome'>Home</Link>
+                <Link to="/createPokemon" className='toCreate'>Create Pokemon</Link>
                 <Routes>
                    <Route path = '/home/' element={<SearchPokemon/>} />
                 </Routes>  

@@ -1,5 +1,5 @@
 .pokemonCard {
-    border: 1px solid black;
+    border: solid 4px rgb(47 107 180);
     width: 120px;
     height: 200px;
     margin: 20px;
@@ -8,17 +8,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(240, 248, 255, 0.723);
-    border-radius: 5px;
+    background-color: rgba(246, 227, 141, 0.57);
+    border-radius: 7px;
  
 }
+.pokemonCard:hover{
+    transform: scale(1.05);
+}
 .type{
-    border-radius: 3px;
-    background-color: rgb(135, 250, 135);
-    color:blueviolet;
+    border-radius: 1px;
+    background-color: rgb(254 203 8);
+    color:rgb(255, 255, 255);
     margin-bottom: 5px;
     margin-top: 2.5px;
-   
+    
     padding-bottom: 3px;
 }
 
@@ -30,8 +33,9 @@
     width: 100px;
     height: 100px;
 }
-/* .inside{
-    margin-top: 1px;
-    margin-bottom: 5px;
-    padding-bottom: 2px;
-} */
+
+.name{
+    color: rgb(34, 81, 139);
+    font-size: 20px;
+    margin-bottom: 10px
+}
