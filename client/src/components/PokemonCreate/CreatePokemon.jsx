@@ -1,7 +1,7 @@
 
 import {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createPokemon } from '../../redux/actions';
+import { createPokemon, getAllPokemons } from '../../redux/actions';
 import NewPokemon from './NewPokemon';
 
 import validate from './validations'
@@ -28,11 +28,13 @@ const CreatePokemon = () => {
    const dispatch = useDispatch();
    const types = useSelector((state) => state.types)
    const pokemonCreated = useSelector((state) => state.newPokemon)
-    
+
+
 
    function handleSubmit(e){
       e.preventDefault();
       dispatch(createPokemon(newPokemon))
+      dispatch(getAllPokemons())
    }
    function handleChange(e){
       setNewPokemon({

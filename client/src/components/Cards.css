@@ -16,5 +16,11 @@
 
 .loading{
     color: #ffffff;
-    font-size: 100px;
+    margin-top: 150px
+}
+
+.cards-loading{
+    color: black;
+    font-size: 30px;
+    margin-top: 50px
 }

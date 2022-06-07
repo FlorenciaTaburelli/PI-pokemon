@@ -5,7 +5,7 @@ import Nav from './components/Nav/Nav.jsx'
 import Home from './components/Home'
 import PokemonDetail from './components/PokemonDetail'
 
-import LandingPage from './components/LandingPage'
+import LandingPage from './components/LandingPage/LandingPage.jsx'
 import PokemonFound from "./components/PokemonFound";
 import CreatePokemon from "./components/PokemonCreate/CreatePokemon";
 //import NewPokemon from "./components/PokemonCreate";

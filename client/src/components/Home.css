@@ -1,14 +1,20 @@
 
 
-
-.Home{
-    background-image: url('../imag/fondo-pokemon.png');
+  /* background-image: url('../imag/fondo-pokemon.png');
     background-position: top;
     background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
+    background-color: rgb(152, 136, 161);
     height: 800px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
+    */
+.Home{
+   
+    background-color: rgb(255, 255, 255);
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }

@@ -1,0 +1,25 @@
+.LandingPage{
+   width: 1300px;
+    height: 700px;
+   display: flex;
+   flex-direction: row;
+   align-items: center
+}
+
+.imgLanding{
+    height: 700px;
+    width: 900px;
+    margin-left: 100px;
+}
+
+.container-welcome{
+    margin-left: 200px
+}
+
+.welcome{
+    font-size: 80px;
+}
+
+.landing-home {
+    font-size: 40px;
+}

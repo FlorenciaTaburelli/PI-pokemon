@@ -3,6 +3,7 @@
 
 const initialState = {
     pokemons:[],
+    liveSearch: [],
     pokemonByName: {},
     pokemonById: {},
     types: [],
@@ -52,6 +53,11 @@ const initialState = {
         return {
           ...state,
           newPokemon: {}
+        }
+      case 'SEARCH_POKEMON':
+        return {
+          ...state,
+          liveSearch: state.pokemons.filter(poke => poke.name.includes(action.payload))
         }
       
         default:

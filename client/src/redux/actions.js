@@ -33,6 +33,13 @@ export function getPokemonByName(name) {
     };
 };
 
+export function searchPokemon(input){
+  return{
+    type: 'SEARCH_POKEMON',
+    payload: input
+  }
+}
+
 // ---------------- GET POKEMON BY ID ----------------
 export function getPokemonById(id) {
   console.log('estoy en la action id', id)
