@@ -1,6 +1,8 @@
+
+
 export default function validate(input){
 
-    
+
     let errors = {};
     if(!input.name){  // si el name esta vacio
       errors.name = 'Name is required';

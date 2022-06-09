@@ -96,6 +96,20 @@ export function getTypes() {
   }
 };
 
+export function filterByCreated(boolean){
+  return{
+    type: 'FILTER_BY_CREATED',
+    payload: boolean
+  }
+};
+
+export function orderName(boolean){
+  return{
+    type: 'ORDER_NAME',
+    payload: boolean
+  }
+}
+
 export function resetPokemonByName(){
   return{
     type: 'REMOVE_POKEMON'
@@ -112,6 +126,18 @@ export function resetPokemonById(){
 export function resetNewPokemon(){
   return{
     type: 'RESET_NEW_POKEMON'
+  }
+};
+
+export function resetFiterCreated(){
+  return{
+    type: 'RESET_FILTER_BY_CREATED'
+  }
+}
+
+export function resetOrderByName(){
+  return{
+    type: 'RESET_ORDER_BY_NAME'
   }
 }
 

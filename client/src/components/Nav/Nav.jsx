@@ -13,13 +13,7 @@ function Nav() {
     
     const dispatch = useDispatch();
 
-    useEffect(() => {
-      //setLoading(true)
-      dispatch(getAllPokemons())
-      dispatch(getTypes())
   
-      //setLoading(false)
-    }, []);
   
     return (
         <header >

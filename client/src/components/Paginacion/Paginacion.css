@@ -21,5 +21,6 @@
 }
 
 .pagination-button:hover{
-    background-color: rgb(160, 130, 7);
+    background-color: rgb(174, 77, 60);
+    border: solid 4px rgb(174, 77, 60);
 }

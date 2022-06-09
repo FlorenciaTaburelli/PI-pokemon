@@ -12,8 +12,9 @@
     */
 .Home{
    
-    background-color: rgb(255, 255, 255);
-    height: 800px;
+    background-color: rgba(219, 100, 79, 0.181);
+    
+    height: 950px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

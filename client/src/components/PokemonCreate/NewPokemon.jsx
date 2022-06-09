@@ -1,11 +1,16 @@
 import React, { useEffect  } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
-import {resetNewPokemon} from '../../redux/actions'
+import {resetNewPokemon, getAllPokemons} from '../../redux/actions'
 
 function NewPokemon() {
-
    
+  const dispatch = useDispatch();
+
+   useEffect(() => {
+   // dispatch(getTypes())
+    dispatch(getAllPokemons())
+   }, [])
 
     return (
      <div>

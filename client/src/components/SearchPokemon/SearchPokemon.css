@@ -13,11 +13,17 @@
     border: none;
     color: rgb(219 99 79);
     font-weight: bold;
+    border-radius: 2px;
+}
+
+.search-button:hover {
+    background-color: rgb(174, 77, 60);
+    color: white
 }
 
 .search{
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+    margin-left: 50px
 }

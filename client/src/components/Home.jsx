@@ -12,16 +12,18 @@ function Home() {
 
   const dispatch = useDispatch();
   const pokemonByName = useSelector((state) => state.pokemonByName);
-  
+  const allPokemons = useSelector((state) => state.pokemons)
 
   useEffect(() => {
-   /// dispatch(getAllPokemons())
-    //dispatch(getTypes())
+    dispatch(getAllPokemons())
+    dispatch(getTypes())
     dispatch(resetPokemonByName())
     dispatch(resetNewPokemon())
   }, []);
 
- console.log(pokemonByName)
+  // useEffect(() => {
+  //   console.log(allPokemons)
+  // }, [allPokemons])
 
   return (
     <div className="Home">
