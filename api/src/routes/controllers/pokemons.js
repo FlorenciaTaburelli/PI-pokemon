@@ -9,12 +9,13 @@ const db = require('../../db');
 const getApiPokemons = async () => {
     try {
         
-        // [axios.get('https://pokeapi.co/api/v2/pokemon?limit=40'), axios.get('https://pokeapi.co/api/v2/pokemon?limit=40'), axios.get('https://pokeapi.co/api/v2/pokemon?limit=40')]
         promiseList = []  // arreglo de promesas
         const url = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=40') // primera peticion, obtengo name + url
+       
         url.data.results.forEach(el => { 
            promiseList.push(axios.get(el.url).then(res => res.data)) // pusheo las promesas al arreglo
         })
+
       const pokeData = Promise.all(promiseList) // ejecuto todas las promesas al mismo tiempo c
        .then(res => res.map(poke => {
            const pokemon = {
@@ -72,10 +73,9 @@ const getAllPokemons = async(name) => {
             const allPokes = [ ...dbPoke, ...apiPoke]
 
             if(name){
-                const pokemonByName = allPokes.find(p => p.name === name)
-                
+                const pokemonByName = allPokes.find(p => p.name.toLowerCase() === name.toLowerCase())
                 if(pokemonByName) return pokemonByName
-                return 'El pokemon buscado no existe'
+                return {msg: 'El pokemon buscado no existe'}
             }else{
                 return allPokes
             }

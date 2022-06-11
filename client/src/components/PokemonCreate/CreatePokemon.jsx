@@ -25,7 +25,6 @@ const CreatePokemon = () => {
 
 
    const [ errors, setErrors ] = useState({})
-  // const [disabledSelect, setDisabledSelect] = useState(false)
    
    const dispatch = useDispatch();
    const types = useSelector((state) => state.types)
@@ -126,24 +125,5 @@ const CreatePokemon = () => {
       </div>
    );
 };
-//"normal",
-// "fighting",
-// "flying",
-// "poison",
-// "ground",
-// "rock",
-// "bug",
-// "ghost",
-// "steel",
-// "fire",
-// "water",
-// "grass",
-// "electric",
-// "psychic",
-// "ice",
-// "dragon",
-// "dark",
-// "fairy",
-// "unknown",
-// "shadow"
+
 export default CreatePokemon;

@@ -12,7 +12,7 @@ function PokemonDetail() {
 console.log(param.id)
 
 useEffect(() => {
-  dispatch(resetPokemonById())
+ /// dispatch(resetPokemonById())
   dispatch(getPokemonById(param.id))
 }, []);
 

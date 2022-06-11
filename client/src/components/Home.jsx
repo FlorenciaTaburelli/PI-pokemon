@@ -14,12 +14,12 @@ function Home() {
   const pokemonByName = useSelector((state) => state.pokemonByName);
   const allPokemons = useSelector((state) => state.pokemons)
 
-  useEffect(() => {
-    dispatch(getAllPokemons())
-    dispatch(getTypes())
-    dispatch(resetPokemonByName())
-    dispatch(resetNewPokemon())
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getAllPokemons())
+  //   dispatch(getTypes())
+  //   dispatch(resetPokemonByName())
+  //   dispatch(resetNewPokemon())
+  // }, []);
 
   // useEffect(() => {
   //   console.log(allPokemons)

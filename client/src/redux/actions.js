@@ -18,7 +18,6 @@ export function getAllPokemons() {
 
 // ---------------- GET POKEMON BY NAME ----------------
 export function getPokemonByName(name) {
-  console.log('actions', name);
     return async function (dispatch) {
       try {
           let pokemonByName = await axios.get(`http://localhost:3001/pokemons?name=${name}`)
@@ -33,7 +32,7 @@ export function getPokemonByName(name) {
     };
 };
 
-export function searchPokemon(input){
+export function searchPokemon(input){   /// FUNCION BUSQUEDA EN VIVO
   return{
     type: 'SEARCH_POKEMON',
     payload: input
@@ -96,23 +95,11 @@ export function getTypes() {
   }
 };
 
-export function filterByCreated(boolean){
-  return{
-    type: 'FILTER_BY_CREATED',
-    payload: boolean
-  }
-};
-
-export function orderName(boolean){
-  return{
-    type: 'ORDER_NAME',
-    payload: boolean
-  }
-}
+// ---------------- RESETS ----------------
 
 export function resetPokemonByName(){
   return{
-    type: 'REMOVE_POKEMON'
+    type: 'RESET_POKEMON_BY_NAME'
   }
 }
 
@@ -128,16 +115,3 @@ export function resetNewPokemon(){
     type: 'RESET_NEW_POKEMON'
   }
 };
-
-export function resetFiterCreated(){
-  return{
-    type: 'RESET_FILTER_BY_CREATED'
-  }
-}
-
-export function resetOrderByName(){
-  return{
-    type: 'RESET_ORDER_BY_NAME'
-  }
-}
-

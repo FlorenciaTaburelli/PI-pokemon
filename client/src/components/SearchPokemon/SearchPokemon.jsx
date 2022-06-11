@@ -13,9 +13,9 @@ function SearchPokemon() {
 
   const [name, setName] = useState('')
 
-  useEffect(() => {
-    dispatch(searchPokemon(name))   //// crear nueva action que filtre aquellos que coincidan
-  }, [name])
+  // useEffect(() => {
+  //   dispatch(searchPokemon(name))   //// DISPATCH PARA BUSQUEDA EN VIVO
+  // }, [name])
 
 
   function handleClick(e){
@@ -26,11 +26,6 @@ function SearchPokemon() {
 
   function handleChange(e){
     setName(e.target.value)
-    if(e.keyCode === 13){
-        e.preventDefault()
-        dispatch(getPokemonByName(name))
-        setName('')
-    }
   }
 
   

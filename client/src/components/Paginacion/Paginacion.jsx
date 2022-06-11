@@ -1,18 +1,14 @@
-import { useState } from 'react'
+import { useState  } from 'react'
 import './Paginacion.css'
-import { useSelector, useDispatch } from 'react-redux'
-import { filterByCreated, orderName, resetFiterCreated, getAllPokemons, resetOrderByName } from '../../redux/actions'
+import { useSelector } from 'react-redux'
 
-////                      1                                      
-function Paginacion ({ currentPage, setCurrentPage, max, orderByName, order, filtCreated, resetFilter }){
+                          
+function Paginacion ({ currentPage, setCurrentPage, max, orderByName, filterByCreated, resetFilter, orderByAttack, filterByType }){
 
-  //  const allPokemons = useSelector((state) => state.pokemons)
-    const dispatch = useDispatch()
-    const [ created, setCreated ] = useState(false)
-    const [ nameOrder, setNameOrder ] = useState(true)
+  
+    const [type, setType] = useState('')
+    const types = useSelector((state) => state.types)
 
-    const pokemonsCreated = useSelector((state) => state.pokemonsCreated)
-/// 
 
  //// ------------- PAGINATION  --------------------------------   
 
@@ -35,43 +31,68 @@ function Paginacion ({ currentPage, setCurrentPage, max, orderByName, order, fil
     
 //// ------------- FILTER BY CREATED  --------------------------------   
  function filterCreated(e){
-     e.preventDefault();
-     setCreated(!created)
-     dispatch(filterByCreated(created))
-    // filtCreated()
+     //e.preventDefault();
+     if(e.target.value === 'original'){
+        filterByCreated(false)
+     }else{
+        filterByCreated(true)
+     }
+     
  }
 
- function resetFiterByCreated(e){
+ ///------------- RESET BUTTON --------------------------------
+ function resetAll(e){
      e.preventDefault();
-     resetFilter()
-    // dispatch(resetFiterCreated())
+     resetFilter()     /// Ejecuto esta funcion de Cards que vuelve a setear AllPokemons con el array original
+     setType('') 
  }
 
 
  //  -------------------- ORDER BY NAME ------------------------------
 
- 
  function handleOrder(e){
-     e.preventDefault();
-     setNameOrder(!nameOrder)
-    // orderByName(nameOrder)
-     order(nameOrder)
-    dispatch(orderName(nameOrder))
-    //dispatch(resetOrderByName())
-  
- }
+    if(e.target.value === 'a-z') orderByName(true)
+    if(e.target.value === 'z-a') orderByName(false)
+    if(e.target.value === 'highAttack')  orderByAttack(true)
+    if(e.target.value === 'lowAttack')  orderByAttack(false)
+}
 
-///[ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los pokemons por orden alfabético y por fuerza
+
+///------------- FILTER BY TYPES --------------------------------
+function handleSelect(e) {
+    filterByType(e.target.value)
+}
 
     return(
         <div className='pagination-container'>
-            {pokemonsCreated.length > 0 && <button onClick={e => resetFiterByCreated(e)}>Get All</button>}
-            <button onClick={(e) => filterCreated(e)}>{!created ? 'Original Pokemons': 'Pokemons Created'}</button>
+
+            <button onClick={e => resetAll(e)}>RESET</button>
+
+            <select onChange={(e) => handleSelect(e)} id="filter-types" value={type}  name='types' className='filter-types'>
+                 <option value="" disabled hidden>Filter By Type</option>
+                    {types.map((e) => (
+                    <option  value={e} key={e}>{e}</option>  // genero un tag <option> por cada type
+                    ))}
+                
+            </select>
+           
+            <select onChange={(e) => filterCreated(e)} id="filter-created"  value={type} name='created' className='filter-created'>
+                <option value="" disabled hidden>Filter By Origin</option>
+                <option value="original">Original</option>
+                <option value="created">Created</option>    
+            </select>
+            
             <button onClick={(e) => prevHandler(e)}  className='pagination-button'>Prev</button>
             <span className='text'>Page: {currentPage} of {max}</span>
             <button onClick={(e) => nextHandler(e)} className='pagination-button'>Next</button>
-            <button onClick={(e) => handleOrder(e)}>{!nameOrder ? 'A - Z': 'Z - A'}</button> 
-            <button>Order by Attack</button> 
+
+            <select onChange={(e) => handleOrder(e)} id="orderBy"  value={type} name='orderBy' className='orderBy'>  
+                <option value="" disabled hidden>Order by :</option>
+                <option value="a-z">A - z</option>
+                <option value="z-a">Z - a</option>    
+                <option value="highAttack">Highest attack</option>
+                <option value="lowAttack">Lower attack</option>   
+            </select>
         </div>
     )
 }

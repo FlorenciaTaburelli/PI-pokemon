@@ -42,7 +42,6 @@ router.get('/types', async (req, res) => {
 //----- GET POKEMONS BY ID ---
 router.get('/pokemons/:id', async (req, res) => {
     const { id } = req.params
-    console.log(id)
     try {
         res.json(await findPokemonById(id))
     } catch (error) {
