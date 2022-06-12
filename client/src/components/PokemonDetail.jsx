@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
 import { resetPokemonById, getPokemonById } from '../redux/actions'
+import loading from '../imag/pokeball-png.gif'
+
 
 function PokemonDetail() {
  const param = useParams()
@@ -9,7 +11,7 @@ function PokemonDetail() {
 
  const pokemon = useSelector((state) => state.pokemonById)
  const pokemonByName = useSelector((state) => state.pokemonByName);
-console.log(param.id)
+
 
 useEffect(() => {
  /// dispatch(resetPokemonById())
@@ -18,8 +20,9 @@ useEffect(() => {
 
 if (!pokemon.name) {
     return (
-      <div >
-        Loading ...
+      <div className="loading">
+        <img src={loading} alt="Loading" />
+        <p className="cards-loading">Loading...</p>
       </div>
 )}else{
     return (
@@ -35,10 +38,7 @@ if (!pokemon.name) {
                 <br />
                 <br />
                 Types: 
-               {pokemon.types
-                ? pokemon.types.map((type, i) => <p key={i}>{type}</p>)   // map por si tiene mas de un type
-                : pokemon.types
-              }
+               {pokemon.types && pokemon.types.map((type, i) => <p key={i}>{type}</p>)}
             </div>
       </div>
     )}

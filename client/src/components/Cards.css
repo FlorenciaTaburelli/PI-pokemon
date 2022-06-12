@@ -1,9 +1,8 @@
 .contenedor{
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    padding-top: 20px;
     flex-direction: column;
+    width: 100%;
 }
 
 .allCards{

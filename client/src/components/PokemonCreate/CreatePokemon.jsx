@@ -94,14 +94,20 @@ const CreatePokemon = () => {
                   : null}
                   {errors.name && (<p>{errors.name}</p>)}
 
-                  <label className='label-name'>Stayin’ alive <input type='number'  name='hp' onChange={handleChange} placeholder='HP...'/></label>
-                  <label className='label-name'>How strong i'm? <input type='number'  name='attack'  onChange={handleChange} placeholder='Attack...'/></label>
-                  <label className='label-name'>Can't mess with me <input type='number' name='defense'  onChange={handleChange} placeholder='Defense...'/></label>
-                  <label className='label-name'>I'm this fast! <input type='number'  name='speed'  onChange={handleChange} placeholder='Speed...'/></label>
-                  <label className='label-name'>I'm this tall! <input type='number'  name='height'  onChange={handleChange} placeholder='Height...'/></label>
-                  <label className='label-name'>I'm this heavy! <input type='number'  name='weight'  onChange={handleChange} placeholder='Weight...'/></label>
-                  
-                  Choose at least TWO types please!
+                  <label className='label-name'>Hp:  <input type='number'  name='hp' onChange={handleChange} placeholder='HP...'/></label>
+                  {errors.hp && (<p>{errors.hp}</p>)}
+                  <label className='label-name'>Attack:  <input type='number'  name='attack'  onChange={handleChange} placeholder='Attack...'/></label>
+                  {errors.attack && (<p>{errors.attack}</p>)}
+                  <label className='label-name'>Defense:  <input type='number' name='defense'  onChange={handleChange} placeholder='Defense...'/></label>
+                  {errors.defense && (<p>{errors.defense}</p>)}
+                  <label className='label-name'>Speed:  <input type='number'  name='speed'  onChange={handleChange} placeholder='Speed...'/></label>
+                  {errors.speed && (<p>{errors.speed}</p>)}
+                  <label className='label-name'>Height:  <input type='number'  name='height'  onChange={handleChange} placeholder='Height...'/></label>
+                  {errors.height && (<p>{errors.height}</p>)}
+                  <label className='label-name'>Weight:  <input type='number'  name='weight'  onChange={handleChange} placeholder='Weight...'/></label>
+                  {errors.weight && (<p>{errors.weight}</p>)}
+
+                  Pick up at least 2 types!
                   {newPokemon.types.length < 2 ? 
                      <select onChange={(e) => handleSelect(e)} id="select-types"   name='types' className='select-types'>
                          {types.map((e) => (

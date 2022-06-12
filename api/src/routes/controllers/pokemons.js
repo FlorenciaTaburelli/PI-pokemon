@@ -72,6 +72,11 @@ const getAllPokemons = async(name) => {
 
             const allPokes = [ ...dbPoke, ...apiPoke]
 
+            allPokes.map(p =>{
+               p.name =  p.name.charAt(0).toUpperCase() + p.name.slice(1)
+               return p
+            })
+           
             if(name){
                 const pokemonByName = allPokes.find(p => p.name.toLowerCase() === name.toLowerCase())
                 if(pokemonByName) return pokemonByName

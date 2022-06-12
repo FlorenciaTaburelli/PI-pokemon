@@ -66,9 +66,9 @@ function handleSelect(e) {
     return(
         <div className='pagination-container'>
 
-            <button onClick={e => resetAll(e)}>RESET</button>
+            <button onClick={e => resetAll(e)} className='pagination-reset'>RESET</button>
 
-            <select onChange={(e) => handleSelect(e)} id="filter-types" value={type}  name='types' className='filter-types'>
+            <select onChange={(e) => handleSelect(e)}  value={type}  name='types' className='filter-types'>
                  <option value="" disabled hidden>Filter By Type</option>
                     {types.map((e) => (
                     <option  value={e} key={e}>{e}</option>  // genero un tag <option> por cada type
@@ -76,7 +76,7 @@ function handleSelect(e) {
                 
             </select>
            
-            <select onChange={(e) => filterCreated(e)} id="filter-created"  value={type} name='created' className='filter-created'>
+            <select onChange={(e) => filterCreated(e)}  value={type} name='created' className='filter-types'>
                 <option value="" disabled hidden>Filter By Origin</option>
                 <option value="original">Original</option>
                 <option value="created">Created</option>    
@@ -86,8 +86,8 @@ function handleSelect(e) {
             <span className='text'>Page: {currentPage} of {max}</span>
             <button onClick={(e) => nextHandler(e)} className='pagination-button'>Next</button>
 
-            <select onChange={(e) => handleOrder(e)} id="orderBy"  value={type} name='orderBy' className='orderBy'>  
-                <option value="" disabled hidden>Order by :</option>
+            <select onChange={(e) => handleOrder(e)}  value={type} name='orderBy' className='filter-types'>  
+                <option value="" disabled hidden>Sort by </option>
                 <option value="a-z">A - z</option>
                 <option value="z-a">Z - a</option>    
                 <option value="highAttack">Highest attack</option>
