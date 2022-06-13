@@ -2,11 +2,11 @@ import React from "react"
 import './App.css';
 import { Route, Routes } from 'react-router-dom'
 import Nav from './components/Nav/Nav.jsx'
-import Home from './components/Home'
-import PokemonDetail from './components/PokemonDetail'
+import Home from './components/Home/Home.jsx'
+import PokemonDetail from './components/PokemonDetail/PokemonDetail'
 
 import LandingPage from './components/LandingPage/LandingPage.jsx'
-import PokemonFound from "./components/PokemonFound";
+import PokemonFound from "./components/PokemonFound/PokemonFound.jsx";
 import CreatePokemon from "./components/PokemonCreate/CreatePokemon";
 //import NewPokemon from "./components/PokemonCreate";
 

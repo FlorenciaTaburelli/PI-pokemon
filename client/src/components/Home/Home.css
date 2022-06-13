@@ -11,11 +11,11 @@
     flex-wrap: wrap;
     */
 .Home{
-   
-    background-color: rgba(219, 100, 79, 0.066);
-    
-    height: 950px;
+   background-image: url('../../imag/wallll.jpg');
+    /* background-color: rgba(219, 100, 79, 0.066); */
+    /* background-image: linear-gradient(to right top, #e150365d, #e3634958, #e5735c4d, #e5836f51, #e491824e, #e491824b, #e491824b, #e491824d, #e5836f51, #e5735c46, #e363494b, #e150364b);    height: 950px; */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    height: 800px;
 }

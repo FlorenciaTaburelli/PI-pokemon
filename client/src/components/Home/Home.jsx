@@ -1,12 +1,14 @@
 
-import Cards from './Cards'
+import Cards from '../Cards/Cards'
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
-import { getTypes, getAllPokemons, resetNewPokemon,resetPokemonByName } from '../redux/actions'
-import PokemonFound from './PokemonFound';
+import { getTypes, getAllPokemons, resetNewPokemon,resetPokemonByName } from '../../redux/actions'
+import PokemonFound from '../PokemonFound/PokemonFound';
 import './Home.css'
-import PokeCard from './PokeCard/PokeCard';
-import Nav from "./Nav/Nav";
+import PokeCard from '../PokeCard/PokeCard';
+import Nav from "../Nav/Nav";
+//import imgCharmander from '../imag/charmander.png'
+
 
 function Home() {
 
@@ -27,6 +29,7 @@ function Home() {
 
   return (
     <div className="Home">
+        
         {/* {pokemonByName.name ? <PokemonFound name={pokemonByName.name} img={pokemonByName.img} id={pokemonByName.id} types={pokemonByName.types}/> 
         : <Cards />
         } */}

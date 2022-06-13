@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
-import { resetPokemonById, getPokemonById } from '../redux/actions'
-import loading from '../imag/pokeball-png.gif'
+import { resetPokemonById, getPokemonById } from '../../redux/actions'
+import loading from '../../imag/pokeball-png.gif'
 
 
 function PokemonDetail() {

@@ -34,8 +34,9 @@
     font-size: 15px;
     background-color:rgba(219, 100, 79, 0.847);
     color:rgb(255, 255, 255);
-    position: relative;
-    left: -250px;
+    
+
+    
 }
 
 .pagination-button:hover, .pagination-reset:hover{

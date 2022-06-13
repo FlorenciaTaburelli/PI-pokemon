@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     /* justify-self: center; */
-    background-color: rgb(219 99 79);
-    
+    /* background-color: #db634f; */
+    background-image: linear-gradient(to right, #db634f, #de705d, #e17c6b, #e3897a, #e59588);
     height: 60px
 }
 
@@ -16,7 +16,7 @@ a{
     
     height: 30px;
     border-radius: 2px;
-    border: solid 2px rgb(219 99 79);
+  
     
     font-size: 18px;
     

@@ -1,11 +1,11 @@
 import React, { useEffect, useState  } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import './Cards.css'
-import { getAllPokemons, getTypes, resetPokemonById } from '../redux/actions'
-import PokeCard from "./PokeCard/PokeCard";
-import Paginacion from "./Paginacion/Paginacion";
-import loading from '../imag/pokeball-png.gif'
-import PokemonFound from './PokemonFound'
+import { getAllPokemons, getTypes, resetPokemonById, resetNewPokemon } from '../../redux/actions'
+import PokeCard from "../PokeCard/PokeCard";
+import Paginacion from "../Paginacion/Paginacion";
+import loading from '../../imag/pokeball-png.gif'
+import PokemonFound from '../PokemonFound/PokemonFound'
 
 function Cards() {
 
@@ -27,6 +27,7 @@ function Cards() {
     dispatch(getAllPokemons())
     dispatch(getTypes())
     dispatch(resetPokemonById())
+    dispatch(resetNewPokemon())
   }, [dispatch]);
 
   useEffect(() => {  // CARGO EN EL ESTAD LOCAL TODOS LOS POKEMONES DEL REDUCER

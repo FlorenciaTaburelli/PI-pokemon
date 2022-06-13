@@ -1,37 +1,138 @@
-.container{
+.container-create{
+    background-image: url('../../imag/wallpaper-detail.jpeg');
+    background-color: #CCEAAE;
+    min-height: 720px;
+    background-size: cover;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    background-color: rgba(116, 197, 35, 0.367);
+    flex-wrap: wrap;
 }
 
-.background-image{
-    height: 400px;
-    margin-top: 250px;
-    /* top: 250px;
-    z-index: -2; */
-}
 
 .form-container{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     position: relative;
-    left: 200px;
-    top: 50px;
+    align-items: center;
+    top: 30px; 
+    left: 150px;
     box-shadow: 5px 10px 18px #888888;
     border-radius: 3px;
     height: 550px;
     width: 600px;
     padding: 20px;
-    flex-wrap: wrap;
+   
+}
+
+.container-inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    margin-right: 300px;
 }
 
 label{
-    margin-right: 80px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    position: relative;
 }
 
 /* .select-types{
     position:relative;
     z-index: 4;   
 } */
+
+.btn-form-submit{
+    width: 150px;
+    height: 40px;
+    margin-top: 3px;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    background-color:rgb(55 119 85);
+    color:rgb(255, 255, 255);
+}
+
+.btn-form-submit:hover{
+    background-color: rgba(55, 119, 85, 0.514);
+}
+
+.input-form{
+    border: none;
+    height: 30px;
+    width: 250px;
+    border-radius: 3px;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    padding-left: 10px;
+    margin-left: 30px;
+}
+
+.label-form{
+
+    color: rgb(55 119 85)
+}
+
+.input-error-msg{
+    height: 2px;
+    margin-top: -15px;
+}
+
+ .select-types{
+    border: none;
+    height: 30px;
+    width: 150px;
+    
+    /* margin-right: 10px;
+    position: relative;
+    top: 40px; */
+    border-radius: 3px;
+    color: rgb(37, 113, 70);
+    font-weight: 550;
+    font-family: sans-serif
+}
+/*
+.select-types:hover{
+    background-color: rgb(211, 233, 220);
+    color:rgb(55, 97, 74)
+} */
+
+.container-types{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    bottom: -10px;
+    height: 30px;
+    width: 300px;
+}
+
+.btn-type{
+    width: 80px;
+    height: 30px;
+    margin-top: -19px;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    background-color:rgba(255, 255, 255, 0.759);
+    color:rgb(37, 113, 70);
+   
+}
+
+.btn-type:hover{
+    background-color: rgba(55, 119, 85, 0.514);
+    color:rgb(255, 255, 255);
+}
+
+.error-select-type{
+    position: relative;
+    top: -3px;
+    color: rgb(55 119 85)
+}
+
+.type-error-msg{
+    position: relative;
+    bottom: 15px;
+}
