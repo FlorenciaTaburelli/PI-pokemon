@@ -40,7 +40,10 @@ function PokeCard(props) {
 
         <div className="inside">
               <h4 className="name">{props.name}</h4>
-              <img src={props.img} alt={props.name} className='image'/>
+              <div className='image'>
+                <img src={props.img} alt={props.name} className='imagen'/>
+              </div>
+              
               {props.types.map((type, i) => <p key={i} 
               className='type'
               >{type}</p>)}

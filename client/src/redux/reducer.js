@@ -44,6 +44,7 @@ const initialState = {
           types: action.payload
         }
       case 'POKEMON_POST':
+        action.payload.types = action.payload.types.map(t => t.name)
         return {
           ...state,
           newPokemon: action.payload

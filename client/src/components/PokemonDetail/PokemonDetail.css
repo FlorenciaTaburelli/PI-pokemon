@@ -1,0 +1,38 @@
+.container-detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 700px;
+    background-image: url('../../imag/wall\ pikachu.jpg');
+    background-repeat: no-repeat;
+    background-position: right;
+    
+}
+
+.card-container{
+    position: relative;
+    top: 50px;
+}
+
+.btn-go-home-detail{
+    position: relative;
+    top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100px;
+    height: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 3px;
+    font-size: 18px;
+    background-color:rgba(219, 100, 79, 0.847);
+    color:rgb(255, 255, 255);
+}
+
+.btn-go-home-detail:hover{
+    background-color: rgb(174, 77, 60);
+    border: solid 4px rgb(174, 77, 60);
+}

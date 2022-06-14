@@ -78,7 +78,7 @@ const CreatePokemon = () => {
   return (
       <div className='container-create'>
          {pokemonCreated.name ? 
-            <NewPokemon/>
+            <NewPokemon />
          :
 
             <form onSubmit={handleSubmit} className='form-container'>

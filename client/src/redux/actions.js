@@ -45,7 +45,7 @@ export function getPokemonById(id) {
     return async function (dispatch) {
       try {
         let pokemonById = await axios.get(`http://localhost:3001/pokemons/${id}`)
-        console.log(pokemonById)
+        
         return dispatch({
           type: 'GET_POKEMON_DETAIL',
           payload: pokemonById.data,

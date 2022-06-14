@@ -213,8 +213,16 @@ const createPokemon = async (name, hp, attack , defense, speed, height, weight, 
             let typesEncontrados = arrayProm.map(el => el.toJSON().id)
            
             await newPokemon.addType(typesEncontrados)
-            ///      ('el pokemon fue creado con exito')                   15, 2
-            return newPokemon
+            ///      ('el pokemon fue creado con exito') 
+            const pokemonCreated = await Pokemon.findByPk(newPokemon.id,{
+                        include:{
+                            model: Type,
+                            through: {attributes: []},
+                            attributes: ["name"]
+                          }
+                         }) 
+        
+            return pokemonCreated
             } 
             return `el pokemon ${name} ya existe`
         }
