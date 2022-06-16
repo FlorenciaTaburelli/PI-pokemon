@@ -10,21 +10,28 @@
 
 
 .btn-go-home{
-    width: 80px;
-    height: 30px;
+    position: relative;
+    top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
     margin-left: 20px;
     margin-right: 20px;
     border: none;
     border-radius: 3px;
-    font-size: 15px;
+    font-size: 18px;
     background-color:rgba(219, 100, 79, 0.847);
     color:rgb(255, 255, 255);
-    
-
     
 }
 
 .btn-go-home:hover{
     background-color: rgb(174, 77, 60);
-    border: solid 4px rgb(174, 77, 60);
+    border: solid 4px rgb(174, 77, 60);    
+}
+
+.msg-not{
+    color:rgb(139, 84, 84)
 }

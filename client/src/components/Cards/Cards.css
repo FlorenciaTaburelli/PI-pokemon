@@ -14,12 +14,19 @@
 }
 
 .loading{
-    color: #ffffff;
-    margin-top: 150px
+    margin-top: 50px;
+    height: 700px;
 }
 
 .cards-loading{
-    color: black;
-    font-size: 30px;
-    margin-top: 50px
+    color: #fff;
+    position: relative;
+    top: -50px;
+    font-size: 50px;
+}
+
+
+.msg-no-types{
+    color: rgb(195, 69, 69);
+    font-size: 20px;
 }

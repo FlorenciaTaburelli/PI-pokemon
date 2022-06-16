@@ -68,6 +68,7 @@ function handleSelect(e) {
 
             <button onClick={e => resetAll(e)} className='pagination-reset'>RESET</button>
 
+            <div className='container-filter'>
             <select onChange={(e) => handleSelect(e)}  value={type}  name='types' className='filter-types'>
                  <option value="" disabled hidden>Filter By Type</option>
                     {types.map((e) => (
@@ -81,10 +82,13 @@ function handleSelect(e) {
                 <option value="original">Original</option>
                 <option value="created">Created</option>    
             </select>
+            </div>
             
+            <div className='container-btn-pagination'>
             <button onClick={(e) => prevHandler(e)}  className='pagination-button'>Prev</button>
             <span className='text'>Page: {currentPage} of {max}</span>
             <button onClick={(e) => nextHandler(e)} className='pagination-button'>Next</button>
+            </div>
 
             <select onChange={(e) => handleOrder(e)}  value={type} name='orderBy' className='filter-types'>  
                 <option value="" disabled hidden>Sort by </option>

@@ -1,5 +1,6 @@
+
 .text{
-    color: rgb(219 99 79);
+    color: rgb(255, 255, 255);
     font-size: 18px
 }
 
@@ -22,8 +23,10 @@
     border-radius: 3px;
     font-size: 15px;
     background-color:rgb(219 99 79);
-    color:rgb(255, 255, 255)
+    color:rgb(255, 255, 255);
+    position: relative;
 }
+
 .pagination-reset{
     width: 80px;
     height: 30px;
@@ -34,7 +37,8 @@
     font-size: 15px;
     background-color:rgba(219, 100, 79, 0.847);
     color:rgb(255, 255, 255);
-    
+    position: relative;
+    left: -250px
 
     
 }
@@ -53,7 +57,8 @@
     border-radius: 3px;
     color: rgb(201, 125, 115);
     font-weight: 550;
-    font-family: sans-serif
+    font-family: 'Montserrat',sans-serif;
+    
 }
 
 .filter-types:hover{
@@ -61,3 +66,45 @@
     color:rgb(255, 255, 255)
 }
 
+.container-filter{
+    position: relative;
+    left: -190px;
+}
+
+.container-btn-pagination{
+    position: relative;
+    left: -120px;
+}
+
+@media screen and (max-width: 950px){
+    .pagination-container{
+       height: 100px;
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center ;
+    }
+   .pagination-reset{
+    position: initial;
+   }
+   .container-filter{
+    position: initial;
+   }
+   .container-btn-pagination{
+    position: initial;
+   }
+   .pagination-button{
+    position: initial;
+   }
+}
+
+@media screen and (max-width: 500px){
+    .pagination-container{
+        height: 150px;
+     }
+}
+
+@media screen and (max-width: 320px){
+    .pagination-container{
+        height: 200px;
+     }
+}

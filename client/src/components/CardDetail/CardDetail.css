@@ -1,24 +1,110 @@
 .container-card-detail{
-    border: 1px solid rgb(0, 0, 0);
-    height: 480px;
+    height: 475px;
     width: 400px;
     margin-bottom: 10px;
+    
+    /* transition-duration: 400ms;
+    transition-timing-function: ease; */
+    perspective: 1000px;
+    background-color: transparent;
+}
+
+/* .container-card-detail:hover{
+    transform: perspective(2000px) rotateY(30deg);
+} */
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%; 
+    text-align: center; 
+     transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .container-card-detail:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-card-front{
     display: flex;
     flex-direction: column;
     border-radius: 9px;
-    background-color: white;
     align-items: center;
+    background-color: rgb(248, 245, 223);
     box-shadow: 5px 10px 18px #262525;
+  }
 
+  .flip-card-back{
+    border-radius: 9px;
+    align-items: center;
+    background-color: rgb(248, 245, 223);
+    box-shadow: 5px 10px 18px #262525;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .p-quotes{
+   margin-bottom: 50px;
+   margin-top: 50px;
+  }
+
+  .hr-size{
+    width: 300px;
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+ 
+  /* Style the back side */
+  .flip-card-back {
+    background-color: rgb(248, 245, 223);
+    color: rgb(0, 0, 0);
+    transform: rotateY(180deg);
+  }
+
+
+/* .container-hover{
+    border: none;
+    height: 475px;
+    width: 400px;
+    margin-bottom: 10px;
+    
+    border-radius: 9px;
+    border: 3px solid black;
+   
+    transition-duration: 400ms;
+    transition-timing-function: ease;
 }
 
+.container-hover:hover{
+    transform: perspective(2000px) rotateY(-30deg);
+} */
+
 .img-container{
-    width: 300px;
-    height: 300px;
-    border: 1px solid rgb(255, 255, 255);
+    width: 270px;
+    height: 270px;
     overflow: hidden;
     border-radius: 15px;
-    margin-top: 10px;
+    margin-top: 18px;
 }
 
 .img-detail{
@@ -37,15 +123,16 @@
 
 .img-types{
     height: 50px;
-    margin-left: 2px;
+    margin-left: 10px;
     position: relative;
-    left: -50px
+    left: -45px
 }
 
 .name-created{
     position: relative;
     right: -40px;
     font-size: 30px;
+    color: rgb(56, 56, 56)
 }
 
 .container-personal{
@@ -54,16 +141,87 @@
 }
 
 .container-info{
-    background-image: linear-gradient(to right, #744fdb, #7477eb, #829bf5, #9ebbf9, #c4d9f9);
+    background-image: linear-gradient(to right, #ff9f00, #ffac00, #ffb900, #ffc500, #ffd200);
     display: flex;
     flex-direction: row;
-    
-    
     width: 400.5px;
     height: 70px;
     position: relative;
-    bottom: -14.5px;
+    bottom: -45.5px;
     border-bottom-right-radius: 9px;
     border-bottom-left-radius: 9px;
+    
 }
+
+.container-hp{
+    position: relative;
+    left: 15px;
+    bottom: 10px;
+    width: 50px;
+}
+
+.p-hp{
+    font-size: 15px;
+    position: relative;
+    top: 7px;
+    color:rgb(255, 255, 255);
+}
+
+.p-hp-data{
+    font-size: 15px;
+    color:rgb(255, 255, 255)
+}
+
+.container-attack{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px;
+}
+
+.p-attack{
+    font-size: 15px;
+    position: relative;
+    top: -3px;
+    color:rgb(255, 255, 255)
+}
+
+.p-attack-data{
+    font-size: 15px;
+    color:rgb(255, 255, 255);
+    position: relative;
+    bottom: 25px
+}
+
+.container-personal{
+    position: relative;
+    top: 25px;
+    color: rgb(56, 56, 56)
+}
+
+.p-height, .p-weight{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px
+}
+
+.container-speed{
+    position: relative;
+    right: 15px;
+    bottom: 10px;
+    width: 50px;
+}
+
+.p-speed{
+    font-size: 15px;
+    position: relative;
+    top: 7px;
+    color:rgb(255, 255, 255)
+}
+
+.p-speed-data{
+    font-size: 15px;
+    color:rgb(255, 255, 255)
+}
+
 

@@ -4,7 +4,8 @@ import './Cards.css'
 import { getAllPokemons, getTypes, resetPokemonById, resetNewPokemon } from '../../redux/actions'
 import PokeCard from "../PokeCard/PokeCard";
 import Paginacion from "../Paginacion/Paginacion";
-import loading from '../../imag/pokeball-png.gif'
+import loading from '../../imag/nuevo.gif'
+// import loading from '../../imag/pokeball-png.gif'
 import PokemonFound from '../PokemonFound/PokemonFound'
 
 function Cards() {
@@ -87,7 +88,7 @@ if (allPokemons.length === 0) {
     return (
       <div className="loading">
         <img src={loading} alt="Loading" />
-        <p className="cards-loading">Loading...</p>
+        <p className="cards-loading"><i>Loading...</i></p>
       </div>
 )}else{
   return (
@@ -104,7 +105,7 @@ if (allPokemons.length === 0) {
           resetFilter={resetFilter} // function reset original array
           />
 
-          {noTypes.length > 0 && <p>{noTypes}</p>}
+          {noTypes.length > 0 && <p className='msg-no-types'><i>{`- ${noTypes} -`}</i></p>}
 
           {pokemonFound.name || pokemonFound.msg ? <PokemonFound name={pokemonFound.name} msg={pokemonFound.msg}/>
           : <div className="allCards">

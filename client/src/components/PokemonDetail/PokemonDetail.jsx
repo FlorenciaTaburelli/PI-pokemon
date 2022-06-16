@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import {useParams, Link} from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
 import { resetPokemonById, getPokemonById } from '../../redux/actions'
-import loading from '../../imag/pokeball-png.gif'
+import loading from '../../imag/nuevo.gif'
 import CardDetail from '../CardDetail/CardDetail';
 import './PokemonDetail.css'
 
@@ -22,9 +22,9 @@ useEffect(() => {
 
 if (!pokemon.name) {
     return (
-      <div className="loading">
-        <img src={loading} alt="Loading" />
-        <p className="cards-loading">Loading...</p>
+      <div className="container-detail-loading">
+          <img src={loading} alt="Loading" />
+          <p className="p-detail-loading"><i>Loading...</i></p>
       </div>
 )}else{
     return (

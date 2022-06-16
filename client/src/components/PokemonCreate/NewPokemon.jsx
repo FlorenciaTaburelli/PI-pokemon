@@ -19,7 +19,7 @@ function NewPokemon() {
 
     return (
      <div className="container-pokemon-created">
-         <h2>I'm not a cat, i'm a POKEMON! </h2> 
+         <h2 className="msg-not">I'm not a cat, i'm a POKEMON! </h2> 
          <CardDetail
           name={pokemon.name}
           img={pokemon.img}

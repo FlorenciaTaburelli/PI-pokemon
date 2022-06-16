@@ -11,13 +11,14 @@
     flex-wrap: wrap;
     */
 .Home{
-   background-image: url('../../imag/pngchar.png');
+   background-image: url('../../imag/High_resolution_wallpaper_background_ID_77700834428-1024x576.jpg');
    background-repeat: no-repeat;
-  background-position: left;
-    background-color: rgb(255, 255, 255);
+   background-size: cover;
+  /* background-position: left; */
+    background-color: #deda6c;
     /* background-image: linear-gradient(to right top, #e150365d, #e3634958, #e5735c4d, #e5836f51, #e491824e, #e491824b, #e491824b, #e491824d, #e5836f51, #e5735c46, #e363494b, #e150364b);    height: 950px; */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    height: 800px;
+    height: 700px;
 }

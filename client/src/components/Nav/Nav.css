@@ -16,19 +16,23 @@ a{
     
     height: 30px;
     border-radius: 2px;
-  
-    
     font-size: 18px;
-    
 }
+
+
 .toHome{
+    height: 30px;
     width: 100px;
-    margin-left: 60px;
-    margin-right: 30px;
+    position: relative;
+    left: 40px;
+    padding-top: 10px;
 }
 .toCreate{
-    margin-right: 100px;
-    width: 200px
+    padding-top: 10px;
+    height: 30px;
+    width: 200px;
+    position: relative;
+    left: 50px
 }
 
 .toHome:hover, .toCreate:hover{
@@ -41,4 +45,26 @@ a{
     /* margin-right:50px; */
     position: relative;
     right: -350px;
+}
+
+@media screen and (max-width: 555px){
+    .navbar{
+        height: 100px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .toCreate{
+        position: initial;
+    }
+    .toHome{
+        position: initial;
+        margin-left: 10px;
+    }
+    
+}
+
+@media screen and (max-width: 390px){
+    .navbar{
+        height: 150px;
+    }
 }
