@@ -3,7 +3,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { resetPokemonByName } from '../../redux/actions'
 import PokeCard from "../PokeCard/PokeCard";
-import { useEffect } from "react"
 import './PokemonFound.css'
 
 function PokemonFound(props) {
@@ -20,7 +19,7 @@ function PokemonFound(props) {
       <div className="container-found">
           
           {pokemonFound.msg ? <div className='container-msg'>
-            <p className='msg-noPokemons'>No pokemon with that name</p>
+            <p className='msg-noPokemons'>{pokemonFound.msg}</p>
             <p className='msg-noPokemons'>Try again!</p>
           </div>
           :

@@ -21,7 +21,6 @@ export function getPokemonByName(name) {
     return async function (dispatch) {
       try {
           let pokemonByName = await axios.get(`http://localhost:3001/pokemons?name=${name}`)
-          console.log(pokemonByName.data)
           return dispatch({
             type: 'GET_POKEMON_BY_NAME',
             payload: pokemonByName.data,
@@ -41,11 +40,11 @@ export function searchPokemon(input){   /// FUNCION BUSQUEDA EN VIVO
 
 // ---------------- GET POKEMON BY ID ----------------
 export function getPokemonById(id) {
-  console.log('estoy en la action id', id)
+  
     return async function (dispatch) {
       try {
         let pokemonById = await axios.get(`http://localhost:3001/pokemons/${id}`)
-        
+        console.log(pokemonById.data)
         return dispatch({
           type: 'GET_POKEMON_DETAIL',
           payload: pokemonById.data,

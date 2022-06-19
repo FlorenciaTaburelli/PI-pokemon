@@ -18,6 +18,8 @@
 
 .welcome{
     font-size: 80px;
+    color: #454545;
+    user-select: none; 
 }
 
 /* .welcome:hover{
@@ -25,7 +27,7 @@
 } */
 
 .landing-home {
-    color: black;
+    color: #454545;
     font-size: 40px;
     font-weight: bold;
     padding: 10px

@@ -11,7 +11,7 @@ function LandingPage() {
     <div className="LandingPage">
       <div className="container-welcome">
         <h1 className='welcome'>Welcome</h1>
-        <Link to='/home/' className='landing-home'> {'> '} ENTER {' < '}</Link> 
+        <Link to='/home/' className='landing-home'> {'> '} HOME {' < '}</Link> 
       </div>
       <img src={imgLanding} alt='landing image' className="imgLanding" />
       

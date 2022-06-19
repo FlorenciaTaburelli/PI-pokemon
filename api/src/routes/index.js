@@ -12,7 +12,7 @@ router.get('/pokemons/', async(req, res) => {
     const { name } = req.query
  
     try {
-        res.json(await getAllPokemons(name))
+        res.status(200).json(await getAllPokemons(name))
     } catch (error) {
         res.status(400).json(error.message)
     }
@@ -20,11 +20,11 @@ router.get('/pokemons/', async(req, res) => {
 });
 
 /// -- POST POKEMON A DB ----
-router.post('/pokemons', async (req, res) => {   /// hacemos un POST porque no se deben mandar datos por req en GET
+router.post('/pokemons', async (req, res) => {   
     const { name, hp, attack , defense, speed, height, weight, types } = req.body
  
     try {
-        res.json(await createPokemon(name, hp, attack , defense, speed, height, weight, types))
+        res.status(200).json(await createPokemon(name, hp, attack , defense, speed, height, weight, types))
     } catch (error) {
         res.status(400).json(error.message)
     }

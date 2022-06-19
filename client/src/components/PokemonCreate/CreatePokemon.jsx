@@ -5,7 +5,8 @@ import { createPokemon, getAllPokemons, getTypes } from '../../redux/actions';
 import NewPokemon from './NewPokemon';
 import validate from './validations';
 import './CreatePokemon.css'
-
+import CardDetail from '../CardDetail/CardDetail';
+import question from '../../imag/question.png'
 //import background from '../../imag/formulario.png'
 
 /// VALIDACIONES , MOSTRAR LOS TIPOS ELEGIDOS Y PODER QUITARLOS
@@ -80,7 +81,7 @@ const CreatePokemon = () => {
          {pokemonCreated.name ? 
             <NewPokemon />
          :
-
+            <>
             <form onSubmit={handleSubmit} className='form-container'>
                <div className='container-inputs'>
                   <label className='label-form'>Name:  
@@ -97,6 +98,7 @@ const CreatePokemon = () => {
 
                   <label className='label-form'>Hp:  
                   <input 
+                  required
                   className='input-form'
                   type='number'  
                   name='hp' 
@@ -106,6 +108,7 @@ const CreatePokemon = () => {
 
                   <label className='label-form'>Attack:  
                   <input 
+                  required
                   className='input-form'
                   type='number'  
                   name='attack'  
@@ -115,6 +118,7 @@ const CreatePokemon = () => {
 
                   <label className='label-form'>Defense:  
                   <input 
+                  required
                   className='input-form'
                   type='number' 
                   name='defense'  
@@ -124,6 +128,7 @@ const CreatePokemon = () => {
 
                   <label className='label-form'>Speed:  
                   <input 
+                  required
                   className='input-form'
                   type='number'  
                   name='speed'  
@@ -133,6 +138,7 @@ const CreatePokemon = () => {
 
                   <label className='label-form'>Height:  
                   <input 
+                  required
                   className='input-form'
                   type='number'  
                   name='height'  
@@ -142,6 +148,7 @@ const CreatePokemon = () => {
 
                   <label className='label-form'>Weight:  
                   <input 
+                  required
                   className='input-form'
                   type='number'  
                   name='weight'  
@@ -152,10 +159,10 @@ const CreatePokemon = () => {
                </div>
                   
                   {newPokemon.types.length < 2 ? 
-                     <select onChange={(e) => handleSelect(e)} id="select-types"  value={newPokemon.types} name='types' className='select-types'>
+                     <select onChange={(e) => handleSelect(e)} id="select-types"  value='' name='types' className='select-types'>
                          <option value="" disabled hidden>Types</option>
                          {types.map((e) => (
-                           <option  value={e} key={e}>{e}</option>  // genero un tag <option> por cada type
+                           <option  value={e} key={e}>{e.charAt(0).toUpperCase() + e.slice(1)}</option>  // genero un tag <option> por cada type
                          ))}
                      </select>
                   :
@@ -169,8 +176,19 @@ const CreatePokemon = () => {
                   : <button type='submit' className='btn-form-submit'>Create Pokemon</button>
                   } 
                </form>
-               
-            
+                  <div className='form-card-detail'>
+                     < CardDetail 
+                        name={newPokemon.name} 
+                        img={question} 
+                        speed={newPokemon.speed} 
+                        height={newPokemon.height} 
+                        weight={newPokemon.weight} 
+                        types={newPokemon.types} 
+                        attack={newPokemon.attack} 
+                        defense={newPokemon.defense} 
+                        hp={newPokemon.hp}/>
+                  </div>
+               </>
          }
          
       </div>

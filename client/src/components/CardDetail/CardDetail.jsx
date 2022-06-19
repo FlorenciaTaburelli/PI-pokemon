@@ -8,15 +8,13 @@ import axios from 'axios';
 
 
 function CardDetail({name, img, speed, height, weight, types, attack, defense, hp}) {
-//console.log( speed, height, weight,  attack, defense, hp)
-  //  const pokemon = useSelector((state) => state.newPokemon)
+
   name =  name.charAt(0).toUpperCase() + name.slice(1)
 
   const [quote, setQuote] = useState([])
   
   useEffect(async () => {
-    const rta = await randomQuoteGen()
-    setQuote(rta)
+    setQuote(await randomQuoteGen())
   }, [])
 
 

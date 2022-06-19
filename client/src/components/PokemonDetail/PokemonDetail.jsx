@@ -1,26 +1,24 @@
 import { useEffect } from 'react'
 import {useParams, Link} from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
-import { resetPokemonById, getPokemonById } from '../../redux/actions'
+import { getPokemonById } from '../../redux/actions'
 import loading from '../../imag/nuevo.gif'
 import CardDetail from '../CardDetail/CardDetail';
 import './PokemonDetail.css'
 
 function PokemonDetail() {
+  
  const param = useParams()
  const dispatch = useDispatch()
 
  const pokemon = useSelector((state) => state.pokemonById)
- const pokemonByName = useSelector((state) => state.pokemonByName);
- 
 
 
 useEffect(() => {
- /// dispatch(resetPokemonById())
   dispatch(getPokemonById(param.id))
 }, []);
 
-if (!pokemon.name) {
+if (!pokemon.name && !pokemon.msg) {
     return (
       <div className="container-detail-loading">
           <img src={loading} alt="Loading" />
@@ -29,19 +27,23 @@ if (!pokemon.name) {
 )}else{
     return (
       <div className="container-detail">
-        <div className="card-container">
-          <CardDetail 
-          name={pokemon.name}
-          img={pokemon.img}
-          hp={pokemon.hp}
-          attack={pokemon.attack}
-          defense={pokemon.defense}
-          speed={pokemon.speed}
-          height={pokemon.height}
-          weight={pokemon.weight}
-          types={pokemon.types}
-          />
-        </div>
+        {pokemon.msg ? <p className="p-msg-pokemonId">{pokemon.msg}</p>
+        :
+          <div className="card-container">
+            <CardDetail 
+              name={pokemon.name}
+              img={pokemon.img}
+              hp={pokemon.hp}
+              attack={pokemon.attack}
+              defense={pokemon.defense}
+              speed={pokemon.speed}
+              height={pokemon.height}
+              weight={pokemon.weight}
+              types={pokemon.types}
+            />
+          </div>
+        }
+      
         <Link to={'/home/'} className='btn-go-home-detail'>Go Home!</Link>
           {/* <img src={pokemon.img} alt={pokemon.name} />
             <div className="infoDerecha">

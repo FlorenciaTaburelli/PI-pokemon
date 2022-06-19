@@ -21,9 +21,6 @@ function App() {
           <Route path="/pokemons/:id" element={<PokemonDetail/>} />
           <Route exact path="/createPokemon" element={<CreatePokemon />} />
         </Route>
-         {/* <Route exact path="/home" element={<Home/>} />
-        <Route path="/pokemons/:id" element={<PokemonDetail/>} /> */}
-       
       </Routes>
     </div>
   );

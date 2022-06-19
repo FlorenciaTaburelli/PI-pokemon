@@ -1,10 +1,9 @@
 import './PokeCard.css'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+
+
 
 function PokeCard(props) {
-
-  const types = useSelector((state) => state.types)
 
 // grey, red, brown, purple, green, blue, yellow, orange, pink
   const colorTypes = {

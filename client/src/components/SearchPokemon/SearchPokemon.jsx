@@ -26,6 +26,9 @@ function SearchPokemon() {
 
   function handleChange(e){
     setName(e.target.value)
+    if(e.keyCode === 13){
+      console.log(e.target.value)
+    }
   }
 
   
@@ -38,7 +41,7 @@ function SearchPokemon() {
             onChange={(e) => handleChange(e)}
             type="text"
             value={name} />
-          <button onClick={(e) => handleClick(e)}  className='search-button'>Go found it!</button>
+          <button onClick={(e) => handleClick(e)}  className='search-button' id='button-search'>Go found it!</button>
       </div>
     )
   };

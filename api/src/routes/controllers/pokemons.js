@@ -5,7 +5,7 @@ const db = require('../../db');
 
 
 
-// GET  a api externa 
+// GET  to pokemon API  
 const getApiPokemons = async () => {
     try {
         
@@ -39,7 +39,7 @@ const getApiPokemons = async () => {
     }
 };
 
-// GET a mi DB
+// GET to DB
 const getDbPokemons = async () => {
   
     try {
@@ -80,7 +80,7 @@ const getAllPokemons = async(name) => {
             if(name){
                 const pokemonByName = allPokes.find(p => p.name.toLowerCase() === name.toLowerCase())
                 if(pokemonByName) return pokemonByName
-                return {msg: 'El pokemon buscado no existe'}
+                return {msg: "There's no pokemon with that name"}
             }else{
                 return allPokes
             }
@@ -90,45 +90,6 @@ const getAllPokemons = async(name) => {
     
 }
 
-
-// ------ GET POKEMON BY NAME --------------------------------
-// const getPokemonsByName = async(name) => {
-    
-//     try {
-//         const dbPokemon = await Pokemon.findOne({
-//             where: {name},
-//             attributes: ['id', 'name', 'img', 'createdPokemon'],
-//             include:{
-//                 model: Type,
-//                 through: {attributes: []},
-//                 attributes: ["name"]
-//               }
-//         })
-//         if(dbPokemon){
-//             return dbPokemon
-//         }else{
-//             const apiPoke = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-//             const pokeApiData = {
-//               id: apiPoke.data.id,
-//               name: apiPoke.data.name,
-//               img: apiPoke.data.sprites.front_default,
-//               types: apiPoke.data.types.map(el => el.type.name),
-//               hp: apiPoke.data.stats[0].base_stat,
-//               attack: apiPoke.data.stats[1].base_stat,
-//               defense: apiPoke.data.stats[2].base_stat,
-//               speed: apiPoke.data.stats[5].base_stat,
-//               height: apiPoke.data.height,
-//               weight: apiPoke.data.weight
-//              }
-
-//              if(pokeApiData) return pokeApiData
-//             return 'rta ok El pokemon no existe'  // esta rta nunca se muestra
-//         }
-//     } catch (error) {
-//         throw Error('El pokemon no existe')
-//     }
-// }
-
 // ------ GET POKEMON BY ID --------------------------------
 const findPokemonById = async(id) => {
    
@@ -137,56 +98,23 @@ const findPokemonById = async(id) => {
         const dbPoke = await getDbPokemons()
         const allPokes = [...apiPoke, ...dbPoke]
 
-       // console.log(allPokes.find(p => p.id == id))
-
         const pokemonById = allPokes.find(p => p.id == id)
 
         if(pokemonById) return pokemonById
-        return 'El pokemon buscado no existe'
-        
-
-           
-        // if(id.length < 4){  /// porque no hay mas de 1000 pokes en la api
-
-        // //    const apiPoke = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-        // //    const pokeFound = { 
-        // //       id: apiPoke.data.id,
-        // //       name: apiPoke.data.name,
-        // //       img: apiPoke.data.sprites.front_default,
-        // //       types: apiPoke.data.types.map(el => el.type.name),
-        // //       hp: apiPoke.data.stats[0].base_stat,
-        // //       attack: apiPoke.data.stats[1].base_stat,
-        // //       defense: apiPoke.data.stats[2].base_stat,
-        // //       speed: apiPoke.data.stats[5].base_stat,
-        // //       height: apiPoke.data.height,
-        // //       weight: apiPoke.data.weight
-        //    }
-        //    return pokeFound ? pokeFound : 'El pokemon no existe'
-        // }else{
-        //     const dbPoke = await Pokemon.findByPk(id,{
-        //         include:{
-        //             model: Type,
-        //             through: {attributes: []},
-        //             attributes: ["name"]
-        //           }
-        //     }) 
-        //     const { dataValues } = dbPoke;
-        //     dataValues.types = dataValues.types.map((t) => t.name)
-        //     return   dbPoke ? dataValues : 'El pokemon no existe'
-        // }
+        return ({msg: "That pokemon doesn't exist"})
         
     } catch (error) {
         return error.message 
     }
 };
 
-/// CREAR UN NUEVO POKEMON A LA BASE DE DATOS -- POST
-const createPokemon = async (name, hp, attack , defense, speed, height, weight, types) => {   /// hacemos un POST porque no se deben mandar datos por req en GET
+/// POST NEW POKEMON IN DB
+const createPokemon = async (name, hp, attack , defense, speed, height, weight, types) => {  
     
     try {
-        //- ---- Busco o creo el pokemon
+        
         const typeCount = await Type.count()
-        //---   IMAGEN RANDOM ---- -
+        //---   RANDOM IMG ---- -
         const gatos = await axios.get('https://api.thecatapi.com/v1/images/search')
         const image = gatos.data[0].url
   
@@ -206,14 +134,14 @@ const createPokemon = async (name, hp, attack , defense, speed, height, weight, 
             })
 
             
-           if(created){   // si lo creo le agrego los types
+           if(created){   
               //---- Busco en el model Type los types pasados por parametro
             let arrayProm = await Promise.all(types.map(el => Type.findOne({where: {name: el}})))
           
-            let typesEncontrados = arrayProm.map(el => el.toJSON().id)
+            let typesFound = arrayProm.map(el => el.toJSON().id)
            
-            await newPokemon.addType(typesEncontrados)
-            ///      ('el pokemon fue creado con exito') 
+            await newPokemon.addType(typesFound)
+          
             const pokemonCreated = await Pokemon.findByPk(newPokemon.id,{
                         include:{
                             model: Type,
@@ -224,10 +152,10 @@ const createPokemon = async (name, hp, attack , defense, speed, height, weight, 
         
             return pokemonCreated
             } 
-            return `el pokemon ${name} ya existe`
+            return `The name ${name} already exists`
         }
         
-        return 'no se cargaron los types'
+        return 'Types must be upload'
         
     
     } catch (error) {
@@ -241,6 +169,5 @@ module.exports = {
     getDbPokemons,
     createPokemon,
     findPokemonById,
-    //getPokemonsByName,
     getAllPokemons
 };

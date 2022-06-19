@@ -52,5 +52,17 @@
     color: #fff;
     font-size: 50px;
     position: relative;
-    top: -50px
+    top: -50px;
+    user-select: none; 
+}
+
+.p-msg-pokemonId{
+    color: rgb(174, 77, 60);
+    font-size:x-large;
+    height: 10px;
+    background-color: rgba(248, 232, 230, 0.758);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
 }

@@ -5,8 +5,9 @@ import { getAllPokemons, getTypes, resetPokemonById, resetNewPokemon } from '../
 import PokeCard from "../PokeCard/PokeCard";
 import Paginacion from "../Paginacion/Paginacion";
 import loading from '../../imag/nuevo.gif'
-// import loading from '../../imag/pokeball-png.gif'
 import PokemonFound from '../PokemonFound/PokemonFound'
+
+
 
 function Cards() {
 
@@ -31,43 +32,49 @@ function Cards() {
     dispatch(resetNewPokemon())
   }, [dispatch]);
 
-  useEffect(() => {  // CARGO EN EL ESTAD LOCAL TODOS LOS POKEMONES DEL REDUCER
+  useEffect(() => {  
     setAllPokemons(pokes)
   },[pokes]);
 
 /// ------------- ORDER BY NAME --------------------------------
-function orderByName(boolean){    /// FUNCION QUE ENVIO POR PARAMS A PAGINATION PARA RECIBIR TRUE/FALSE LUEGO DE PRESIONAR UN BOTON
-  boolean ? setAllPokemons([...pokes.sort((a, b) => a.name.localeCompare(b.name))])
+function orderByName(boolean){   
+  boolean ? setAllPokemons([...allPokemons.sort((a, b) => a.name.localeCompare(b.name))])
   :
-  setAllPokemons([...pokes.sort((a, b) => b.name.localeCompare(a.name))])
+  setAllPokemons([...allPokemons.sort((a, b) => b.name.localeCompare(a.name))])
 };
 
 /// ------------- ORDER BY ATTACK ------------------------------
 function orderByAttack(boolean){    /// FUNCION QUE ENVIO POR PARAMS A PAGINATION PARA RECIBIR TRUE/FALSE LUEGO DE PRESIONAR UN BOTON
-  boolean ? setAllPokemons([...pokes.sort((a, b) => b.attack - a.attack)])
+  boolean ? setAllPokemons([...allPokemons.sort((a, b) => b.attack - a.attack)])
   :
-  setAllPokemons([...pokes.sort((a, b) => a.attack - b.attack)])
+  setAllPokemons([...allPokemons.sort((a, b) => a.attack - b.attack)])
 };
 
 // -------------------- FILTER BY TYPE --------------------
 function filterByType (type) {
-  const filt = pokes.filter(poke => poke.types.find(t => t === type))
+  if(type === 'All Pokemons'){
+    setAllPokemons(pokes)
+    setNoTypes('')
+  }else{
+    const filt = pokes.filter(poke => poke.types.find(t => t === type))
   if(filt.length > 0){
+    setNoTypes('')
     setAllPokemons(filt)
   }
- if(filt.length === 0 && noTypes.length === 0){
-    setNoTypes('No se encontraron pokemones de ese tipo')
+ if(filt.length === 0 && noTypes.length >= 0){
+    setNoTypes('No pokemon of that type found')
   }
-  if (noTypes.length > 0) setNoTypes('')
+  }
+  
 };
 
 /// ------------- FILTER BY CREATED ------------------------------
 function filterByCreated(boolean){
   if(boolean) {
-    const created = pokes.filter(poke => poke.createdPokemon)
+    const created = allPokemons.filter(poke => poke.createdPokemon)
      if(created.length > 0) setAllPokemons(created)
   }else{
-    const notCreated = pokes.filter(poke => !poke.createdPokemon)
+    const notCreated = allPokemons.filter(poke => !poke.createdPokemon)
     if(notCreated.length > 0) setAllPokemons(notCreated)
   }
 };

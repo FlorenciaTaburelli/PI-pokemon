@@ -63,18 +63,14 @@
     width: 300px;
   }
   
-  /* Position the front and back side */
   .flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
+    -webkit-backface-visibility: hidden; 
     backface-visibility: hidden;
   }
   
-  /* Style the front side (fallback if image is missing) */
- 
-  /* Style the back side */
   .flip-card-back {
     background-color: rgb(248, 245, 223);
     color: rgb(0, 0, 0);
@@ -82,22 +78,6 @@
   }
 
 
-/* .container-hover{
-    border: none;
-    height: 475px;
-    width: 400px;
-    margin-bottom: 10px;
-    
-    border-radius: 9px;
-    border: 3px solid black;
-   
-    transition-duration: 400ms;
-    transition-timing-function: ease;
-}
-
-.container-hover:hover{
-    transform: perspective(2000px) rotateY(-30deg);
-} */
 
 .img-container{
     width: 270px;
@@ -138,6 +118,7 @@
 .container-personal{
     display: flex;
     flex-direction: row;
+
 }
 
 .container-info{
@@ -147,7 +128,7 @@
     width: 400.5px;
     height: 70px;
     position: relative;
-    bottom: -45.5px;
+    bottom: -45.5px; 
     border-bottom-right-radius: 9px;
     border-bottom-left-radius: 9px;
     

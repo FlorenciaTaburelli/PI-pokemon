@@ -16,6 +16,7 @@
 .loading{
     margin-top: 50px;
     height: 700px;
+    user-select: none; 
 }
 
 .cards-loading{

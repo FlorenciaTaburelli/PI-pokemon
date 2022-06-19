@@ -47,6 +47,20 @@ a{
     right: -350px;
 }
 
+.logoPoke{
+    height: 60px;
+    /* position: relative;
+    left: 350px; */
+    margin-left: 20%;
+}
+
+@media screen and (max-width: 1270px){
+    .logoPoke{
+        position: absolute;
+        visibility: hidden;
+    }
+}
+
 @media screen and (max-width: 555px){
     .navbar{
         height: 100px;
@@ -60,6 +74,7 @@ a{
         position: initial;
         margin-left: 10px;
     }
+   
     
 }
 

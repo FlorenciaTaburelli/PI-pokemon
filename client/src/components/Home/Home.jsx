@@ -1,7 +1,7 @@
 
 import Cards from '../Cards/Cards'
 import { useSelector, useDispatch } from "react-redux";
-import React, { useEffect } from "react";
+import React, { useEffect, Component } from "react";
 import { getTypes, getAllPokemons, resetNewPokemon,resetPokemonByName } from '../../redux/actions'
 import PokemonFound from '../PokemonFound/PokemonFound';
 import './Home.css'
@@ -10,11 +10,21 @@ import Nav from "../Nav/Nav";
 //import imgCharmander from '../imag/charmander.png'
 
 
-function Home() {
+export default class Home extends Component{
+ 
+  render() {
 
-  const dispatch = useDispatch();
-  const pokemonByName = useSelector((state) => state.pokemonByName);
-  const allPokemons = useSelector((state) => state.pokemons)
+    return (
+        <div className="Home">
+            
+            {/* {pokemonByName.name ? <PokemonFound name={pokemonByName.name} img={pokemonByName.img} id={pokemonByName.id} types={pokemonByName.types}/> 
+            : <Cards />
+            } */}
+            <Cards />
+        </div>
+      );
+
+  }
 
   // useEffect(() => {
   //   dispatch(getAllPokemons())
@@ -27,15 +37,5 @@ function Home() {
   //   console.log(allPokemons)
   // }, [allPokemons])
 
-  return (
-    <div className="Home">
-        
-        {/* {pokemonByName.name ? <PokemonFound name={pokemonByName.name} img={pokemonByName.img} id={pokemonByName.id} types={pokemonByName.types}/> 
-        : <Cards />
-        } */}
-        <Cards />
-    </div>
-  );
+  
 }
-
-export default Home;
