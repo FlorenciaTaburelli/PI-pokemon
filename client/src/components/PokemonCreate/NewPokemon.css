@@ -7,29 +7,30 @@
 }
 
 
-
-
-.btn-go-home{
-    position: relative;
-    top: 40px;
+.container-btn-create{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
+    flex-direction: row;
+    margin-top: 2%;
+}
+
+
+.btn-go-home, .btn-create-another{
+    width: 150px;
     height: 40px;
+    border: none;
     margin-left: 20px;
     margin-right: 20px;
-    border: none;
     border-radius: 3px;
     font-size: 18px;
     background-color:rgba(219, 100, 79, 0.847);
     color:rgb(255, 255, 255);
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-go-home:hover{
-    background-color: rgb(174, 77, 60);
-    border: solid 4px rgb(174, 77, 60);    
+.btn-go-home:hover, .btn-create-another:hover{
+    background-color: rgb(174, 77, 60);   
 }
 
 .msg-not{

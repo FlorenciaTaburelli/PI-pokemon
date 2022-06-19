@@ -67,15 +67,13 @@ const CreatePokemon = () => {
    };
 
    function handleDeleteSelection(e){
-      console.log(e.target.name)
-      console.log(newPokemon.types)
       e.preventDefault();
       setNewPokemon({
          ...newPokemon,
          types: newPokemon.types.filter(type => type !== e.target.name)
       });
    }
-   
+   console.log('errores',Object.keys(errors).length)
   return (
       <div className='container-create'>
          {pokemonCreated.name ? 
@@ -162,7 +160,7 @@ const CreatePokemon = () => {
                      <select onChange={(e) => handleSelect(e)} id="select-types"  value='' name='types' className='select-types'>
                          <option value="" disabled hidden>Types</option>
                          {types.map((e) => (
-                           <option  value={e} key={e}>{e.charAt(0).toUpperCase() + e.slice(1)}</option>  // genero un tag <option> por cada type
+                           <option  value={e} key={e}>{e}</option>  // genero un tag <option> por cada type
                          ))}
                      </select>
                   :
@@ -172,7 +170,7 @@ const CreatePokemon = () => {
                      {newPokemon.types?.map((type, i) => <button className='btn-type' key={i} name={type} onClick={(e) => handleDeleteSelection(e)}>{type}</button>)}  
                      {errors.types && (<p className='type-error-msg'>{errors.types}</p>)}
                   </div>
-                  {newPokemon.name.length === 0 || newPokemon.types.length === 0 ? <button type='submit' disabled className='btn-form-submit'>Create Pokemon</button>
+                  {Object.keys(errors).length ? <button type='submit' disabled className='btn-form-submit'>Create Pokemon</button>
                   : <button type='submit' className='btn-form-submit'>Create Pokemon</button>
                   } 
                </form>

@@ -73,7 +73,7 @@ function handleSelect(e) {
                  <option value="" disabled hidden>Filter By Type</option>
                  <option value="All Pokemons" >All Pokemons</option>
                     {types.map((e) => (
-                    <option  value={e} key={e}>{e.charAt(0).toUpperCase() + e.slice(1)}</option>  // genero un tag <option> por cada type
+                    <option  value={e} key={e}>{e}</option>  // genero un tag <option> por cada type
                     ))}
                 
             </select>

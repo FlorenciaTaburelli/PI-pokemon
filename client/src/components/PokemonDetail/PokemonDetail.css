@@ -6,7 +6,7 @@
     background-image: url('../../imag/wall\ pikachu.jpg');
     background-repeat: no-repeat;
     background-position: right;
-    
+    flex-wrap: wrap;
 }
 
 .card-container{
@@ -23,8 +23,6 @@
 
     width: 100px;
     height: 40px;
-    margin-left: 20px;
-    margin-right: 20px;
     border: none;
     border-radius: 3px;
     font-size: 18px;
@@ -34,7 +32,6 @@
 
 .btn-go-home-detail:hover{
     background-color: rgb(174, 77, 60);
-    border: solid 4px rgb(174, 77, 60);
 }
 
 .container-detail-loading{
@@ -66,3 +63,4 @@
     align-items: center;
     margin-top: 50px;
 }
+

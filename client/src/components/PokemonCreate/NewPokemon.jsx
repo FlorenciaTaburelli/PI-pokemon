@@ -31,8 +31,12 @@ function NewPokemon() {
           weight={pokemon.weight}
           types={pokemon.types}
          />
-           {/* Falta la tarjeta gigante */}
-         <Link to={'/home/'} className='btn-go-home'>Go Home!</Link>
+
+        <div className='container-btn-create'>
+           <Link to={'/home/'} className='btn-go-home'>Go Home!</Link>
+           <button onClick={() => window.location.reload()} className='btn-create-another'>Create another</button>
+        </div>
+        
      </div>
     );
 }  

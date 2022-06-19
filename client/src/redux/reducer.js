@@ -4,7 +4,7 @@
 const initialState = {
     pokemons:[],
     liveSearch: [],
-    pokemonByName: {},  // por el momento no lo uso
+    pokemonByName: {},  // busqueda a api
     pokemonById: {},  // al clickear una card busca por id
     types: [],  // todos los types de pokemons
     newPokemon: {},  // el nuevo pokemon creado
@@ -18,7 +18,7 @@ const initialState = {
           pokemons: action.payload
         };
       case 'GET_POKEMON_BY_NAME':   /// BUSQUEDA POR BOTON
-      console.log(state.pokemonByName)
+     
         return {
           ...state,
           pokemonByName: action.payload
@@ -39,9 +39,13 @@ const initialState = {
           pokemonById: {}
         };
       case 'GET_TYPES':
+        const typesUpper = action.payload.map(t =>{
+          t = t.charAt(0).toUpperCase() + t.slice(1)
+          return t
+        })
         return{
           ...state,
-          types: action.payload
+          types: typesUpper
         }
       case 'POKEMON_POST':
         action.payload.types = action.payload.types.map(t => t.name)
