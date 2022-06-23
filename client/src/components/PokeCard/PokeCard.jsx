@@ -1,10 +1,12 @@
 import './PokeCard.css'
 import { Link } from 'react-router-dom'
-
+import axios from 'axios';
+import { useState } from 'react';
+import {getAllPokemons} from '../../redux/actions'
+import { useDispatch } from 'react-redux'
 
 
 function PokeCard(props) {
-
 // grey, red, brown, purple, green, blue, yellow, orange, pink
   const colorTypes = {
     normal: 'linear-gradient(to bottom, #f8833e, #fa8e4e, #fc995e, #fea36e, #ffae7e)',  // grey
@@ -29,15 +31,18 @@ function PokeCard(props) {
     shadow: 'linear-gradient(to bottom, #989998, #a1a4a2, #abaeab, #b4b9b5, #bec4bf)'  // grey
   }
 
+  //&#10006;
+// &times;
   
  
     return (
-      <Link to={`/pokemons/${props.id}`} 
-      className="pokemonCard"  
-      style={{
-      backgroundImage: colorTypes[props.types[0]]}} >
-
+      <div className="pokemonCard"  style={{ backgroundImage: colorTypes[props.types[0]]}}>
+        {props.created && <button className='btn-delete' onClick={() => props.delete(props.id)}> &times;</button>}
+        
+      <Link to={`/pokemons/${props.id}`}>
+      
         <div className="inside">
+            
               <h4 className="name">{props.name}</h4>
               <div className='image'>
                 <img src={props.img} alt={props.name} className='imagen'/>
@@ -48,6 +53,8 @@ function PokeCard(props) {
               >{type}</p>)}
           </div>
       </Link>
+      </div>
+       
     );
 }  
 

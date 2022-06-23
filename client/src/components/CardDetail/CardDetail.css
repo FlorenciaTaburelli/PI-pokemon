@@ -89,8 +89,8 @@
 
 .img-detail{
     height: 100%;
-    position: relative;
-    left: -5px;
+    /* position: relative;
+    left: -5px; */
 }
 
 .types-name-container{
@@ -127,8 +127,7 @@
     flex-direction: row;
     width: 400.5px;
     height: 70px;
-    position: relative;
-    bottom: -45.5px; 
+    margin-top: 81px;
     border-bottom-right-radius: 9px;
     border-bottom-left-radius: 9px;
     
@@ -175,8 +174,8 @@
 }
 
 .container-personal{
-    position: relative;
-    top: 25px;
+       position: relative;
+    bottom: -50px;
     color: rgb(56, 56, 56)
 }
 

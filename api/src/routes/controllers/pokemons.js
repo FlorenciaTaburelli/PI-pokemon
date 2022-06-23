@@ -112,7 +112,7 @@ const findPokemonById = async(id) => {
 const createPokemon = async (name, hp, attack , defense, speed, height, weight, types) => {  
     
     try {
-        
+        types = types.map(t => t.toLowerCase())  // del front vienen los types en mayus
         const typeCount = await Type.count()
         //---   RANDOM IMG ---- -
         const gatos = await axios.get('https://api.thecatapi.com/v1/images/search')
@@ -135,11 +135,11 @@ const createPokemon = async (name, hp, attack , defense, speed, height, weight, 
 
             
            if(created){   
-              //---- Busco en el model Type los types pasados por parametro
+              //-- Busco en el model Type los types pasados por parametro
             let arrayProm = await Promise.all(types.map(el => Type.findOne({where: {name: el}})))
-          
+            
             let typesFound = arrayProm.map(el => el.toJSON().id)
-           
+            
             await newPokemon.addType(typesFound)
           
             const pokemonCreated = await Pokemon.findByPk(newPokemon.id,{
@@ -149,7 +149,7 @@ const createPokemon = async (name, hp, attack , defense, speed, height, weight, 
                             attributes: ["name"]
                           }
                          }) 
-        
+            console.log(pokemonCreated)
             return pokemonCreated
             } 
             return `The name ${name} already exists`
@@ -163,11 +163,29 @@ const createPokemon = async (name, hp, attack , defense, speed, height, weight, 
     }
 };
 
+const deletePokemon = async(id) => {
+   
+    try {
+        let pokeDeleted = await Pokemon.destroy({
+            where: {
+                id: id
+            }
+        })
+        console.log(pokeDeleted.toJSON())
+        return ({msg: "That pokemon doesn't exist"})
+        
+    } catch (error) {
+        return error.message 
+    }
+};
+
+
 
 module.exports = {
     getApiPokemons,
     getDbPokemons,
     createPokemon,
     findPokemonById,
-    getAllPokemons
+    getAllPokemons,
+    deletePokemon
 };

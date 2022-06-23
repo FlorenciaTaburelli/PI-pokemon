@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { createPokemon, findPokemonById , getAllPokemons } = require('./controllers/pokemons')
+const { createPokemon, findPokemonById , getAllPokemons, deletePokemon } = require('./controllers/pokemons')
 const { getTypes } = require('./controllers/types')
 
 
@@ -46,6 +46,15 @@ router.get('/pokemons/:id', async (req, res) => {
         res.json(await findPokemonById(id))
     } catch (error) {
         res.status(400).json(error.message)
+    }
+});
+
+router.delete('/delete-pokemons/:id', async (req, res) => {
+    let { id } = req.params
+    try {
+        res.json(await deletePokemon(id))
+    } catch (error) {
+        res.status(400).send(error.message)
     }
 });
 

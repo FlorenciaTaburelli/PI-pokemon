@@ -6,8 +6,8 @@ import PokeCard from "../PokeCard/PokeCard";
 import Paginacion from "../Paginacion/Paginacion";
 import loading from '../../imag/nuevo.gif'
 import PokemonFound from '../PokemonFound/PokemonFound'
-
-
+import axios from "axios";
+import catBoots from '../../imag/cat-boots.png'
 
 function Cards() {
 
@@ -20,7 +20,13 @@ function Cards() {
   const [items, setItems] = useState(12)  // cantidad de pokemons por pagina
   
   const [allPokemons, setAllPokemons] = useState([])  // cantidad de pokemons por pagina
+
   const [noTypes, setNoTypes] = useState('') // muestra mensaje si no se encuentran pokemones de ese tipo
+  const [msgDelete, setMsgDelete] = useState('')
+  const [idDeleted, setIdDeleted] = useState(999)
+  const [divDisabled, setDivDisabled] = useState(false)
+
+console.log(divDisabled)
 
   const max = Math.ceil(allPokemons.length / items) /// max solo muestra el total de paginas
   
@@ -56,14 +62,14 @@ function filterByType (type) {
     setAllPokemons(pokes)
     setNoTypes('')
   }else{
-    const filt = pokes.filter(poke => poke.types.find(t => t === type))
-  if(filt.length > 0){
-    setNoTypes('')
-    setAllPokemons(filt)
-  }
- if(filt.length === 0 && noTypes.length >= 0){
-    setNoTypes('No pokemon of that type found')
-  }
+    const filt = pokes.filter(poke => poke.types.find(t => t.toLowerCase() === type.toLowerCase()))
+    if(filt.length > 0){
+      setNoTypes('')
+      setAllPokemons(filt)
+    }
+    if(filt.length === 0 && noTypes.length >= 0){
+      setNoTypes('No pokemon of that type found')
+    }
   }
   
 };
@@ -71,12 +77,16 @@ function filterByType (type) {
 /// ------------- FILTER BY CREATED ------------------------------
 function filterByCreated(boolean){
   if(boolean) {
-    const created = allPokemons.filter(poke => poke.createdPokemon)
-     if(created.length > 0) setAllPokemons(created)
+    const created = pokes.filter(poke => poke.createdPokemon)
+    console.log(created)
+    created.length > 0 ? setAllPokemons(created) : setNoTypes('No pokemons created yet')
+   
   }else{
-    const notCreated = allPokemons.filter(poke => !poke.createdPokemon)
+    setNoTypes('')
+    const notCreated = pokes.filter(poke => !poke.createdPokemon)
     if(notCreated.length > 0) setAllPokemons(notCreated)
   }
+  
 };
 
 // --------------- RESET POKEMONS --------------------------------
@@ -84,6 +94,43 @@ function resetFilter(){  /// FUNCION QUE PASO POR PARAMS PARA VOLVER A MOSTRAR T
   dispatch(getAllPokemons())
   setNoTypes('')
 };
+
+
+//--------------- DELETE POKEMON  --------------------------------
+//<div className='delete-confirm'>
+{/* <p>Are you sure you want to delete me?</p>
+<img></img>
+</div> */}
+/*
+var btnClass = classNames({
+  'btn': true,
+  'btn-pressed': this.state.isPressed,
+  'btn-over': !this.state.isPressed && this.state.isHovered
+});
+
+return <button className={btnClass}>I'm a button!</button>;
+
+} 
+*/
+
+ function openMsgDelete(id){
+  // habilita la clase 'show'
+  setDivDisabled(true)
+  setIdDeleted(id)
+ }
+ 
+function handleDelete(e){
+    e.preventDefault()
+    axios.delete(`http://localhost:3001/delete-pokemons/${idDeleted}`)
+    .then(() => setMsgDelete('Delete successful'));
+    dispatch(getAllPokemons())
+    setDivDisabled(false)
+}
+
+function handleNoDelete(e){
+  e.preventDefault();
+  setDivDisabled(false)
+}
 
 /// ------------- LIVE SEARCH -------------
 // useEffect(() => {
@@ -114,6 +161,8 @@ if (allPokemons.length === 0) {
 
           {noTypes.length > 0 && <p className='msg-no-types'><i>{`- ${noTypes} -`}</i></p>}
 
+          
+
           {pokemonFound.name || pokemonFound.msg ? <PokemonFound name={pokemonFound.name} msg={pokemonFound.msg}/>
           : <div className="allCards">
                   {allPokemons && allPokemons.slice((currentPage * items) - items, (currentPage * items)).map(poke => {
@@ -123,12 +172,26 @@ if (allPokemons.length === 0) {
                       img={poke.img}
                       id= {poke.id}
                       types={poke.types}
-                      key={poke.name}/>
+                      key={poke.name}
+                      delete={openMsgDelete}
+                      created={poke.createdPokemon}/>
+                      
                     )
                     })
                   }
           </div>
           }
+
+          <div  className={divDisabled ? 'show-delete' : "container-delete"}>
+            <div className='delete-confirm'>
+              <div className="question-confirm">
+                  <button className="btn-no-delete" onClick={(e) => handleNoDelete(e)}>NO</button>
+                  <p className="p-delete">Are you sure u want to delete me?</p>
+                  <button className="btn-yes-delete" onClick={(e) => handleDelete(e)}>YES</button>
+              </div>
+              <img src={catBoots} alt="Delete" className="img-delete"/>
+            </div>
+          </div>
           
     </div>
   )}

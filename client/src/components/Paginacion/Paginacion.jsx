@@ -91,7 +91,7 @@ function handleSelect(e) {
             <button onClick={(e) => nextHandler(e)} className='pagination-button'>Next</button>
             </div>
 
-            <select onChange={(e) => handleOrder(e)}  value={type} name='orderBy' className='filter-types'>  
+            <select onChange={(e) => handleOrder(e)}  value={type} name='orderBy' className='container-order'>  
                 <option value="" disabled hidden>Sort by </option>
                 <option value="a-z">A - z</option>
                 <option value="z-a">Z - a</option>    

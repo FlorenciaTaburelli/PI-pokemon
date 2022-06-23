@@ -37,8 +37,8 @@
     font-size: 15px;
     background-color:rgba(219, 100, 79, 0.847);
     color:rgb(255, 255, 255);
-    position: relative;
-    left: -250px
+    position: absolute;
+    left: 0%;
 
     
 }
@@ -59,6 +59,19 @@
     font-weight: 550;
     font-family: 'Montserrat',sans-serif;
     
+    
+}
+.container-order{
+    border: none;
+    height: 30px;
+    width: 150px;
+   
+    border-radius: 3px;
+    color: rgb(201, 125, 115);
+    font-weight: 550;
+    font-family: 'Montserrat',sans-serif;
+    position: absolute;
+    left: 85%;
 }
 
 .filter-types:hover{
@@ -67,13 +80,13 @@
 }
 
 .container-filter{
-    position: relative;
-    left: -190px;
+    position: absolute;
+    left: 15%;
 }
 
 .container-btn-pagination{
-    position: relative;
-    left: -120px;
+    position: absolute;
+    left: 45%;
 }
 
 @media screen and (max-width: 950px){
@@ -81,7 +94,9 @@
        height: 100px;
        display: flex;
        flex-wrap: wrap;
+       flex-direction: column;
        justify-content: center ;
+
     }
    .pagination-reset{
     position: initial;
@@ -93,6 +108,9 @@
     position: initial;
    }
    .pagination-button{
+    position: initial;
+   }
+   .container-order{
     position: initial;
    }
 }
