@@ -203,9 +203,11 @@
     font-size: 15px;
     color:rgb(255, 255, 255)
 }
-/* 
-@media screen and (max-width: 470px){
-   
+
+@media screen and (max-width: 539px){
+    .container-card-detail{
+        width: 90vw;
+    }
   }
 
- */
+

@@ -1,7 +1,7 @@
 .container-create{
     background-image: url('../../imag/wallpaper-detail.jpeg');
     background-color: #CCEAAE;
-    min-height: 720px;
+    height: 100vh;
     background-size: cover;
     display: flex;
     flex-wrap: wrap;
@@ -20,7 +20,7 @@
     padding: 20px;
     margin-left: 5%;
     margin-top: 2%;
-    margin-right: 3%
+    margin-right: 3%;
    
 }
 
@@ -146,5 +146,50 @@ label{
     .form-card-detail{
         position: absolute;
         visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 730px){
+    .form-container{
+        position: absolute;
+        flex-wrap: wrap;
+        height: 80%;
+        width: 80%;
+    }
+    .select-types{
+      position: absolute;
+      bottom: 15%;
+      right: 5%;
+    }
+    .btn-form-submit{
+      position: absolute;
+      bottom: 5%;
+      right: 5%;
+    }
+    .container-inputs{
+        position: absolute;
+        top: 8%;
+        left: -12%;
+    }
+    .container-types{
+        position: absolute;
+        bottom: 14%;
+        left: -1%;
+    }
+    .error-select-type{
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .form-container{
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+    .container-inputs{
+        position: absolute;
+        top: 5%;
+        left: 1%;
+        width: 77vw;
     }
 }

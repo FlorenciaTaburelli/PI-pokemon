@@ -31,13 +31,8 @@ function Paginacion ({ currentPage, setCurrentPage, max, orderByName, filterByCr
     
 //// ------------- FILTER BY CREATED  --------------------------------   
  function filterCreated(e){
-     //e.preventDefault();
-     if(e.target.value === 'original'){
-        filterByCreated(false)
-     }else{
-        filterByCreated(true)
-     }
-     
+    filterByCreated(e.target.value)
+    
  }
 
  ///------------- RESET BUTTON --------------------------------
@@ -80,6 +75,7 @@ function handleSelect(e) {
            
             <select onChange={(e) => filterCreated(e)}  value={type} name='created' className='filter-types'>
                 <option value="" disabled hidden>Filter By Origin</option>
+                <option value="allPokemons">All Pokemons</option>
                 <option value="original">Original</option>
                 <option value="created">Created</option>    
             </select>

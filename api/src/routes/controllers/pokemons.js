@@ -21,7 +21,7 @@ const getApiPokemons = async () => {
            const pokemon = {
             id: poke.id,
             name: poke.name,
-            img: poke.sprites.front_default,
+            img: poke.sprites.other.dream_world.front_default,
             types: poke.types.map(el => el.type.name),
             hp: poke.stats[0].base_stat,
             attack: poke.stats[1].base_stat,

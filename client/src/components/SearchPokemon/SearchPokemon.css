@@ -25,19 +25,20 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 23%;
+    position: absolute;
+    left: 45%
     /* position: relative;
     right: -600px;
 } */
 }
 
 @media screen and (max-width: 1270px){
-    .search{
+    /* .search{
         position: initial;
-    }
+    } */
 }
 
-@media screen and (max-width: 555px){
+@media screen and (max-width: 855px){
     .search{
         position: initial;
         margin-left: 30px;

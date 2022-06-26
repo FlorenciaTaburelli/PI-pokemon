@@ -4,7 +4,12 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
+    background-image: url('../../imag/High_resolution_wallpaper_background_ID_77700834428-1024x576.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+   /* background-position: left; */
    
+     background-color: #deda6c;
 }
 
 .allCards{
@@ -65,14 +70,17 @@
     align-items: center;
     justify-content: space-evenly;
     margin-top: 50px;
-    width: 600px;
+    width: 100%;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     text-decoration: none;
 }
+.delete-confirm{
+    width: 700px;
+}
 
 .img-delete{
-    width: 600px;
+    width: 100%;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
 }
@@ -96,5 +104,11 @@
 .btn-no-delete:hover, .btn-yes-delete:hover{
     transform: scale(1.15);
     background-color: rgb(67, 69, 67);
+}
+
+@media screen and (max-width:910px){
+    .delete-confirm{
+        width: 75vw;
+    }
 }
 

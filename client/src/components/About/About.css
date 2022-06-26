@@ -1,0 +1,119 @@
+.about{
+    background-color: #f4b186;
+    height: 100vh;
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/aaadb192-4f8d-491c-8024-d6fcc77920db/d8f7nw2-c237d22b-2df6-4d99-924e-06cd6ddc3c8a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2FhYWRiMTkyLTRmOGQtNDkxYy04MDI0LWQ2ZmNjNzc5MjBkYlwvZDhmN253Mi1jMjM3ZDIyYi0yZGY2LTRkOTktOTI0ZS0wNmNkNmRkYzNjOGEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.cp930Fk-Z106bpxkehiHU2d9aIQeoGwwY5r5npr2nlk');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    color: rgb(30, 64, 30)
+}
+
+.header-about{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.social{
+display: flex;
+align-items: center;
+position: absolute;
+right: 10%;
+filter: opacity(0.5) drop-shadow(0 0 0 #57825f);
+}
+
+.social-lin:hover, .social-git:hover{
+    filter: opacity(0.5) drop-shadow(0 0 0 #67fb6c);
+}
+
+.logoPokemon{
+    height: 15vh;
+}
+
+.description{
+    width: 70vw;
+}
+
+.tecnologies-js{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: -5%;
+}
+
+.tecnologies-js:hover .textTool{
+    transform: translate(0%, -105%);
+    opacity: 1;
+}
+
+.span-javascript{
+    position: absolute;
+    left: 25%;
+}
+
+.logos{
+    width: 80px;
+}
+
+.tecnologies:hover .textTool{
+    transform: translate(0%, -125%);
+    opacity: 1;
+}
+
+.tecnologies{
+    width: 100px;
+    height: 100px;
+}
+
+.back-end, .front-end{
+ display: flex;
+ flex-direction: row;
+ margin-top: 35px;
+ 
+}
+
+
+.textTool {
+    position: relative;
+    bottom: 90px;
+    padding: 0.8rem 1rem;
+    background-color: #f5f5dc;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+@media screen and (max-width: 950px){
+    .about{
+        height: 100%;
+    }
+    .social{
+        position: relative;
+        right: inherit;
+    }
+    .header-about{
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 640px){
+    .back-end, .front-end{
+        flex-wrap: wrap;
+        width: 70vw;
+    }
+    .logoPokemon{
+        height: auto;
+        width: 80vw;
+    }
+}

@@ -7,13 +7,13 @@
 }
 
 .btn-pokemonFound{
-    width: 80px;
-    height: 30px;
+    width: 100px;
+    height: 45px;
     margin-top: 40px;
     border: none;
     border-radius: 3px;
     font-size: 15px;
-    background-color:rgba(219, 100, 79, 0.847);
+    background-color:rgb(219, 100, 79);
     color:rgb(255, 255, 255);
 }
 

@@ -24,21 +24,24 @@ function SearchPokemon() {
     setName('')
   }
 
-  function handleChange(e){
-    setName(e.target.value)
-    if(e.keyCode === 13){
-      console.log(e.target.value)
+  // function handleChange(e){
+  //   setName(e.target.value)
+  // }
+
+  const handleKeyDown = (event) => {
+    setName(event.target.value)
+    if (event.key === 'Enter') {
+      handleClick(event)
     }
   }
-
-  
 
     return (
       <div className="search">
           <input 
             className='search-pokemon-input'
             placeholder='Search Pokemon' 
-            onChange={(e) => handleChange(e)}
+            onKeyDown={handleKeyDown}
+            onChange={(e) => handleKeyDown(e)}
             type="text"
             value={name} />
           <button onClick={(e) => handleClick(e)}  className='search-button' id='button-search'>Go found it!</button>

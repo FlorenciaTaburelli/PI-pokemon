@@ -76,17 +76,19 @@ function filterByType (type) {
 
 /// ------------- FILTER BY CREATED ------------------------------
 function filterByCreated(boolean){
-  if(boolean) {
+  if(boolean === 'allPokemons'){
+    setAllPokemons(pokes)
+  }
+    else if(boolean === 'created') {
     const created = pokes.filter(poke => poke.createdPokemon)
     console.log(created)
     created.length > 0 ? setAllPokemons(created) : setNoTypes('No pokemons created yet')
-   
-  }else{
-    setNoTypes('')
-    const notCreated = pokes.filter(poke => !poke.createdPokemon)
-    if(notCreated.length > 0) setAllPokemons(notCreated)
-  }
-  
+    }
+    else{
+      setNoTypes('')
+      const notCreated = pokes.filter(poke => !poke.createdPokemon)
+      if(notCreated.length > 0) setAllPokemons(notCreated)
+    }
 };
 
 // --------------- RESET POKEMONS --------------------------------

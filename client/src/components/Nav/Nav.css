@@ -4,7 +4,8 @@
     /* justify-self: center; */
     /* background-color: #db634f; */
     background-image: linear-gradient(to right, #db634f, #de705d, #e17c6b, #e3897a, #e59588);
-    height: 60px
+    height: 60px;
+   
 }
 
 a{
@@ -12,32 +13,38 @@ a{
     color: white
 }
 
-.toHome, .toCreate {
-    
+.toHome, .toCreate, .toAbout {
+    padding-top: 10px;
     height: 30px;
-    border-radius: 2px;
+    border-radius: 4px;
     font-size: 18px;
+    height: 30px;
+    position: absolute;
 }
 
+.toAbout{
+    width: 80px;
+    left: 9%;
+}
 
 .toHome{
-    height: 30px;
-    width: 100px;
-    position: relative;
-    left: 40px;
-    padding-top: 10px;
-}
-.toCreate{
-    padding-top: 10px;
-    height: 30px;
-    width: 200px;
-    position: relative;
-    left: 50px
+    width: 80px;
+    left: 3%;
 }
 
-.toHome:hover, .toCreate:hover{
+.toCreate{
+    width: 190px;
+    position: relative;
+    left: 18%;
+    background-color: #f8f5df;
+    color:rgb(174, 77, 60)
+
+}
+
+.toHome:hover, .toCreate:hover, .toAbout:hover{
     background-color: rgb(174, 77, 60);
-    border: solid 2px rgb(174, 77, 60)
+    border: solid 2px rgb(174, 77, 60);
+    color: white
 }
 
 
@@ -53,11 +60,7 @@ a{
         position: absolute;
         visibility: hidden;
     }
-}
-
-@media screen and (max-width: 555px){
     .navbar{
-        height: 100px;
         display: flex;
         flex-wrap: wrap;
     }
@@ -68,6 +71,32 @@ a{
         position: initial;
         margin-left: 10px;
     }
+
+    .toAbout{
+        position: initial;
+        margin-left: 10px;
+    }
+   
+}
+
+@media screen and (max-width: 885px){
+    .navbar{
+        height: 100px;
+        /* display: flex;
+        flex-wrap: wrap; */
+    }
+    /* .toCreate{
+        position: initial;
+    }
+    .toHome{
+        position: initial;
+        margin-left: 10px;
+    }
+
+    .toAbout{
+        position: initial;
+        margin-left: 10px;
+    } */
    
     
 }

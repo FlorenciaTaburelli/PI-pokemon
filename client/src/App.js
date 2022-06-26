@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import Nav from './components/Nav/Nav.jsx'
 import Home from './components/Home/Home.jsx'
 import PokemonDetail from './components/PokemonDetail/PokemonDetail'
-
+import About from './components/About/About.jsx'
 import LandingPage from './components/LandingPage/LandingPage.jsx'
 import PokemonFound from "./components/PokemonFound/PokemonFound.jsx";
 import CreatePokemon from "./components/PokemonCreate/CreatePokemon";
@@ -17,6 +17,7 @@ function App() {
         <Route exact path="/" element={<LandingPage/>} />
          <Route path="/" element={<Nav/>}>  {/*  //  PARA MOSTRAR EL NAV EN VARIAS PAGINAS, ENVUELVE LAS RUTAS DONDE LO QUIERO MOSTAR */}
           <Route exact path="/home" element={<Home/>} />
+          <Route exact path="/about" element={<About/>} />
           <Route path='/pokemonFound' element={<PokemonFound/>} />
           <Route path="/pokemons/:id" element={<PokemonDetail/>} />
           <Route exact path="/createPokemon" element={<CreatePokemon />} />

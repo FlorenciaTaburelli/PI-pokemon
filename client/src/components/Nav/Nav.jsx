@@ -5,12 +5,16 @@ import { Routes, Route } from 'react-router-dom'
 import './Nav.css'
 import logoPoke from '../../imag/logoPoke.png'
 
+
 function Nav() {
     
+
+
     return (
         <header >
             <nav className="navbar">
                 <Link to="/home/" className='toHome'>Home</Link>
+                <Link to="/about" className='toAbout'>About</Link>
                 <Link to="/createPokemon" className='toCreate'>Create Pokemon</Link>
               
                 <Routes>
