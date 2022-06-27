@@ -1,9 +1,10 @@
 .container-create{
     background-image: url('../../imag/wallpaper-detail.jpeg');
     background-color: #CCEAAE;
-    height: 100vh;
+    height: 115vh;
     background-size: cover;
     display: flex;
+    width: 115vw;
     flex-wrap: wrap;
 }
 
@@ -24,12 +25,19 @@
    
 }
 
-.container-inputs{
+.input-group{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    width: fit-content;
+}
+
+.container-inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    margin-right: 300px;
+    
 }
 
 label{
@@ -97,15 +105,25 @@ label{
     background-color: rgb(211, 233, 220);
     color:rgb(55, 97, 74)
 } */
+.containet-footer-form{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ width: 100%;
+}
 
+.container-select-types{
+    display: flex;
+    flex-direction: column;
+}
 .container-types{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     position: relative;
     bottom: -10px;
-    height: 30px;
+    height: 100%;
     width: 300px;
 }
 
@@ -150,22 +168,25 @@ label{
 }
 
 @media screen and (max-width: 730px){
-    .form-container{
-        position: absolute;
-        flex-wrap: wrap;
-        height: 80%;
-        width: 80%;
+    .container-inputs{
+        position: initial;
+        justify-content: center;
     }
-    .select-types{
-      position: absolute;
-      bottom: 15%;
-      right: 5%;
+    .form-container{
+        /* flex-wrap: wrap; */
+        height: 100vh;
+        width: 80vw;
+        margin-left: 0%;
+    }
+   /* .select-types{
+      position: initial;
     }
     .btn-form-submit{
-      position: absolute;
-      bottom: 5%;
-      right: 5%;
-    }
+     position: initial;
+      /* display: flex; */
+      /* justify-self: flex-end; */
+      /* align-items: flex-end; */
+    /* }
     .container-inputs{
         position: absolute;
         top: 8%;
@@ -178,13 +199,26 @@ label{
     }
     .error-select-type{
         position: absolute;
+    } */ 
+}
+
+@media screen and (max-width: 388px){
+    .input-form{
+        width: 70vw;
+        margin-left: 0%;
     }
 }
 
-@media screen and (max-width: 500px){
+/* @media screen and (max-width: 500px){ 
     .form-container{
         flex-wrap: nowrap;
         flex-direction: column;
+        padding: 20px;
+        margin-left: 0%;
+        margin-top: 0%;
+        margin-right: 0%;
+        width: 90vw;
+        height: 90vh;
     }
     .container-inputs{
         position: absolute;
@@ -192,4 +226,4 @@ label{
         left: 1%;
         width: 77vw;
     }
-}
+}*/

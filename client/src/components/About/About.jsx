@@ -29,7 +29,7 @@ function About() {
             <div className='description'>
               <p>This project is about creating a SPA using what i've learn on <a href='https://twitter.com/soyhenry_ok?s=20&t=apgsMUtmxxKVPiwDgFXpKQ' target="_blank">@Henry</a>,  based on Pokemon. It is a catalog, that is, a browsable list of Pokemon that you can filter by type, origin or sort by name or attack. You can access to the details of each one or, the most fun part, <Link to='/createPokemon'>create your own!.</Link></p>
 
-              <p> the aplication retrieves data from the Pokemon API, create a database where the created pokemons will be saved, create an intermediate table and generate the association. </p>
+              <p> The aplication retrieves data from the Pokemon API, create a database where the created pokemons will be saved, create an intermediate table and generate the association. </p>
 
             </div>
             

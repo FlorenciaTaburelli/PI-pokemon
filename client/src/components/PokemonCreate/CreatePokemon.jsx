@@ -82,6 +82,7 @@ const CreatePokemon = () => {
             <>
             <form onSubmit={handleSubmit} className='form-container'>
                <div className='container-inputs'>
+                  <div className='input-group'>
                   <label className='label-form'>Name:  
                   <input 
                   className='input-form'
@@ -154,25 +155,31 @@ const CreatePokemon = () => {
                   placeholder='Weight...'/></label>
                   {errors.weight && (<p className='input-error-msg'>{errors.weight}</p>)}
                
-               </div>
-                  
-                  {newPokemon.types.length < 2 ? 
-                     <select onChange={(e) => handleSelect(e)} id="select-types"  value='' name='types' className='select-types'>
-                         <option value="" disabled hidden>Types</option>
-                         {types.map((e) => (
-                           <option  value={e} key={e}>{e}</option>  // genero un tag <option> por cada type
-                         ))}
-                     </select>
-                  :
-                  <p className='error-select-type'>Only two types are allowed</p>
-                  }
-                  <div className='container-types'>
-                     {newPokemon.types?.map((type, i) => <button className='btn-type' key={i} name={type} onClick={(e) => handleDeleteSelection(e)}>{type}</button>)}  
-                     {errors.types && (<p className='type-error-msg'>{errors.types}</p>)}
                   </div>
-                  {Object.keys(errors).length ? <button type='submit' disabled className='btn-form-submit'>Create Pokemon</button>
-                  : <button type='submit' className='btn-form-submit'>Create Pokemon</button>
-                  } 
+
+                    <div className='containet-footer-form'>
+                        <div className='container-types'>
+                           {newPokemon.types?.map((type, i) => <button className='btn-type' key={i} name={type} onClick={(e) => handleDeleteSelection(e)}>{type}</button>)}  
+                           {errors.types && (<p className='type-error-msg'>{errors.types}</p>)}
+                        </div>
+                        <div className='container-select-types'>
+                           {newPokemon.types.length < 2 ? 
+                              <select onChange={(e) => handleSelect(e)} id="select-types"  value='' name='types' className='select-types'>
+                                 <option value="" disabled hidden>Types</option>
+                                 {types.map((e) => (
+                                    <option  value={e} key={e}>{e}</option>  // genero un tag <option> por cada type
+                                 ))}
+                              </select>
+                           :
+                           <p className='error-select-type'>Only two types are allowed</p>
+                           }
+                           
+                           {Object.keys(errors).length ? <button type='submit' disabled className='btn-form-submit'>Create Pokemon</button>
+                           : <button type='submit' className='btn-form-submit'>Create Pokemon</button>
+                           } 
+                        </div>
+                     </div>
+                   </div>
                </form>
                   <div className='form-card-detail'>
                      < CardDetail 
