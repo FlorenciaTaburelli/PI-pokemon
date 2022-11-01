@@ -51,4 +51,4 @@ function SearchPokemon() {
 
  
 
-export default connect(null, { getPokemonByName })(SearchPokemon);
+export default SearchPokemon;

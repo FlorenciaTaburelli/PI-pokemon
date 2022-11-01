@@ -72,6 +72,7 @@
 }
 
 .btn-delete:hover{
-    background-color: rgba(70, 118, 78, 0.452);
-    border-radius: 2px;
+    color: rgba(43, 72, 48, 0.993)
+    /* background-color: rgba(70, 118, 78, 0.452);
+    border-radius: 2px; */
 }
