@@ -149,7 +149,6 @@ const createPokemon = async (name, hp, attack , defense, speed, height, weight, 
                             attributes: ["name"]
                           }
                          }) 
-            console.log(pokemonCreated)
             return pokemonCreated
             } 
             return `The name ${name} already exists`
@@ -171,7 +170,6 @@ const deletePokemon = async(id) => {
                 id: id
             }
         })
-        console.log(pokeDeleted.toJSON())
         return ({msg: "That pokemon doesn't exist"})
         
     } catch (error) {
