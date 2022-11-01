@@ -1,10 +1,10 @@
 .container-create{
     background-image: url('../../imag/wallpaper-detail.jpeg');
     background-color: #CCEAAE;
-    height: 115vh;
+    height: 100vh;
     background-size: cover;
     display: flex;
-    width: 115vw;
+    width: 100vw;
     flex-wrap: wrap;
 }
 

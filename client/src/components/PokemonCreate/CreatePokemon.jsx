@@ -1,7 +1,8 @@
 
 import {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createPokemon, getAllPokemons, getTypes } from '../../redux/actions';
+import { createPokemon, getTypes } from '../../redux/actions';
+import { Widget } from "@uploadcare/react-widget";
 import NewPokemon from './NewPokemon';
 import validate from './validations';
 import './CreatePokemon.css'
@@ -22,9 +23,10 @@ const CreatePokemon = () => {
       speed: 0,
       height: 0,
       weight: 0,
+      img: '',
       types: []
    })
-
+console.log(newPokemon)
    const [ errors, setErrors ] = useState({})
    
    const dispatch = useDispatch();
@@ -36,12 +38,12 @@ const CreatePokemon = () => {
 
    useEffect(() => {
       dispatch(getTypes())
-   },[])
+   },[dispatch])
 
    function handleSubmit(e){
       e.preventDefault();
       dispatch(createPokemon(newPokemon))
-      dispatch(getAllPokemons())
+      // dispatch(getAllPokemons())  // 
    }
 
    function handleChange(e){
@@ -56,9 +58,10 @@ const CreatePokemon = () => {
    }
 
    function handleSelect(e){
+      const findType = newPokemon.types.find(t => t === e.target.value) /// no repito los types seleccionados
       setNewPokemon({
          ...newPokemon,
-         types: [...newPokemon.types, e.target.value]
+        types: findType ? [...newPokemon.types] : [...newPokemon.types, e.target.value]
       });
       setErrors(validate({
          ...newPokemon,
@@ -66,11 +69,11 @@ const CreatePokemon = () => {
       }))
    };
 
-   function handleDeleteSelection(e){
+   function handleDeleteSelection(e){  // manejo botones types seleccionados
       e.preventDefault();
       setNewPokemon({
          ...newPokemon,
-         types: newPokemon.types.filter(type => type !== e.target.name)
+         types: newPokemon.types.filter(type => type !== e.target.name)  // saco el type seleccionado del arreglo newPokemon.types
       });
    }
    console.log('errores',Object.keys(errors).length)
@@ -156,7 +159,17 @@ const CreatePokemon = () => {
                   {errors.weight && (<p className='input-error-msg'>{errors.weight}</p>)}
                
                   </div>
-
+                  <Widget
+                     publicKey="269841dc43864e62c49d"
+                     id="file"
+                     name="photos"
+                     onChange={(e) => {
+                        setNewPokemon({
+                           ...newPokemon,
+                           img: e.originalUrl
+                        })
+                     }}
+                     />
                     <div className='containet-footer-form'>
                         <div className='container-types'>
                            {newPokemon.types?.map((type, i) => <button className='btn-type' key={i} name={type} onClick={(e) => handleDeleteSelection(e)}>{type}</button>)}  

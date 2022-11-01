@@ -19,11 +19,11 @@ function Cards() {
   const [ currentPage , setCurrentPage] = useState(1)   /// pagina actual
   const [items, setItems] = useState(12)  // cantidad de pokemons por pagina
   
-  const [allPokemons, setAllPokemons] = useState([])  // cantidad de pokemons por pagina
+  const [allPokemons, setAllPokemons] = useState([]) 
 
   const [noTypes, setNoTypes] = useState('') // muestra mensaje si no se encuentran pokemones de ese tipo
   const [msgDelete, setMsgDelete] = useState('')
-  const [idDeleted, setIdDeleted] = useState(999)
+  const [idDeleted, setIdDeleted] = useState(0)
   const [divDisabled, setDivDisabled] = useState(false)
 
 console.log(divDisabled)
@@ -99,23 +99,8 @@ function resetFilter(){  /// FUNCION QUE PASO POR PARAMS PARA VOLVER A MOSTRAR T
 
 
 //--------------- DELETE POKEMON  --------------------------------
-//<div className='delete-confirm'>
-{/* <p>Are you sure you want to delete me?</p>
-<img></img>
-</div> */}
-/*
-var btnClass = classNames({
-  'btn': true,
-  'btn-pressed': this.state.isPressed,
-  'btn-over': !this.state.isPressed && this.state.isHovered
-});
 
-return <button className={btnClass}>I'm a button!</button>;
-
-} 
-*/
-
- function openMsgDelete(id){
+ function openMsgDelete(id){  // se ejecuta en PokeCard con el id del pokemon
   // habilita la clase 'show'
   setDivDisabled(true)
   setIdDeleted(id)
@@ -124,8 +109,9 @@ return <button className={btnClass}>I'm a button!</button>;
 function handleDelete(e){
     e.preventDefault()
     axios.delete(`http://localhost:3001/delete-pokemons/${idDeleted}`)
-    .then(() => setMsgDelete('Delete successful'));
-    dispatch(getAllPokemons())
+    .then(() => setMsgDelete('Delete successful'))
+    setAllPokemons(allPokemons.filter(poke => poke.id !== idDeleted));
+    // dispatch(getAllPokemons())
     setDivDisabled(false)
 }
 
